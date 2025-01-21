@@ -183,6 +183,8 @@ attrib +h SourceCode\gp1.log</Command>
     <ClInclude Include="SourceCode\all.h" />
     <ClInclude Include="SourceCode\audio.h" />
     <ClInclude Include="SourceCode\common.h" />
+    <ClInclude Include="SourceCode\info.h" />
+    <ClInclude Include="SourceCode\judge.h" />
     <ClInclude Include="SourceCode\Kunai.h" />
     <ClInclude Include="SourceCode\Mato.h" />
     <ClInclude Include="SourceCode\obj2d.h" />
@@ -207,6 +209,8 @@ attrib +h SourceCode\gp1.log</Command>
     <ClCompile Include="GameLib\wnd_proc.cpp" />
     <ClCompile Include="SourceCode\audio.cpp" />
     <ClCompile Include="SourceCode\common.cpp" />
+    <ClCompile Include="SourceCode\info.cpp" />
+    <ClCompile Include="SourceCode\judge.cpp" />
     <ClCompile Include="SourceCode\Kunai.cpp" />
     <ClCompile Include="SourceCode\main.cpp" />
     <ClCompile Include="SourceCode\Mato.cpp" />

@@ -39,10 +39,11 @@
 //TODO_01
 #include "obj2d.h"
 
+#include "info.h"
 #include "scene_game.h"
 #include "scene_title.h"
 
-#
+#include"judge.h"
 
 #include "Mato.h"
 #include "Kunai.h"

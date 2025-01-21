@@ -35,6 +35,10 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
                 title_deinit();
                 break;
 
+            case SCENE_INFO://ê‡ñæâÊñ 
+
+                break;
+
             case SCENE_GAME:
                 game_deinit();
                 break;
@@ -45,6 +49,10 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
             {
             case SCENE_TITLE:
                 title_init();
+                break;
+
+            case SCENE_INFO:
+
                 break;
 
             case SCENE_GAME:
@@ -89,6 +97,10 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
     {
     case SCENE_TITLE:
         title_deinit();
+        break;
+
+    case SCENE_INFO:
+
         break;
 
     case SCENE_GAME:
