@@ -7,11 +7,12 @@ using namespace std;
 int mato_state;
 int mato_timer;
 
-float posX;
-float posY;
+float posX1;
+float posY1;//的１の座標
 
 //宣言
-OBJ2D enemy[MATO_MAX];
+OBJ2D mato[MATO_MAX];
+Sprite* sprMato;
 
 
 
@@ -41,14 +42,15 @@ struct MATO_DATA matoData[] =
 //敵の配置
 struct ENEMY_SET
 {
-	int enemyType;
+	int area; //エリア数
+	int enemyType;//敵のタイプ
 	VECTOR2 pos;
 
 };
 
 struct ENEMY_SET enemySet[] =
 {
-	{0,{posX,posY}},//敵０
+	{0,0,{posX1,posY1}},//敵０
 
 };
 
@@ -95,7 +97,7 @@ void mato_update()
 		//敵データのクリア
 		for (int i = 0; i < MATO_MAX; i++)
 		{
-			enemy[i] = {};
+			mato[i] = {};
 			
 		}
 
@@ -113,6 +115,13 @@ void mato_update()
 //描画
 void mato_render()
 {
-	/*sprite_render(sprMato, 0, 0);*/
+	sprite_render(sprMato, 0, 0);
+
+		//当たり判定の赤円
+	primitive::circle(
+		mato.pos + Kunai.offset,
+		Kunai.radius, { 0.3,0.3 },
+		ToRadian(0), { 1,0,0,0.2f }
+	);
 }
 

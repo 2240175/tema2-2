@@ -41,6 +41,14 @@ struct OBJ2D
     VECTOR2 pivot;
     VECTOR4 color;
 
+
+
+    int area;//画面切り替え
+
+    int moveAlg;
+
+
+
 #if 15
 //******************************************************************************
 // TODO:15 OBJ2Dに速度のメンバ変数を追加
@@ -66,7 +74,7 @@ struct OBJ2D
 
     //円の当たり判定用変数
     float radius;
-    VECTOR2 offset;
+    VECTOR2 offset;//当たり井判定の中心
 };
 
 #endif//OBJ2D_H

@@ -1,7 +1,7 @@
 #include "all.h"
 
-extern OBJ2D Kunai;
-extern OBJ2D Mato[MATO_MAX];
+//extern OBJ2D Kunai;
+//extern OBJ2D Mato[MATO_MAX];
 
 #if 25
 //******************************************************************************
@@ -85,9 +85,9 @@ void judge()
     //for (int i = 0; i < MATO_MAX; ++i)
     //{
     //    if (Mato[i].moveAlg == -1) continue;
-    //    if (enemy[i].area != Mato.area) continue;
+    //    if (Mato[i].area != Kunai.area) continue;
 
-    //    if (hitCheck(&player, &enemy[i]))
+    //    if (hitCheck(&Kunai, &Mato[i]))
     //    {
     //        game_reset();
     //    }
