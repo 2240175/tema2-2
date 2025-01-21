@@ -3,6 +3,7 @@
 
 int     kunai_state;
 
+
 OBJ2D   Kunai;
 
 Sprite* sprKunai;
@@ -11,12 +12,14 @@ Sprite* sprKunai;
 void kunai_init()
 {
     kunai_state = 0;
+	
 }
 
 //I—¹ˆ—
 void kunai_deinit()
 {
     safe_delete(sprKunai);
+	Kunai.pos.y = 760;
 }
 
 //XVˆ—
@@ -27,7 +30,7 @@ void kunai_update()
 	case 0:
 		//‰æ‘œ‚Ì“Ç‚İ‚İ
 		sprKunai = sprite_load(L"./Data/Images/Okunai.png");
-
+		 
 		kunai_state++;
 		break;
 	case 1:
@@ -41,11 +44,36 @@ void kunai_update()
 		Kunai.radius = 24;
 		Kunai.offset = { 0,-32 };
 
+		
 
 		kunai_state++;
+		
+	case 3:
+		if (TRG(0) & PAD_TRG1)
+		{
+
+			Kunai.pos.y = 390;
+
+		}
 	
 	}
 }
+
+void kunai_move()
+{
+
+
+
+	if (TRG(0) & PAD_TRG1)
+	{	
+		Kunai.pos.y = 390;
+
+		
+
+	}
+	
+}
+
 
 void kunai_render()
 {
@@ -68,16 +96,3 @@ void kunai_render()
 
 }
 
-//bool kunai_hit()
-//{
-//	if (TRG(0) & PAD_TRG1  )
-//	{
-//		sound::play(XWB_STAGE1, XWB_STAGE1_JUMP);
-//		
-//		Kunai.pos.y = 390;
-//	
-//		return true;
-//	}
-//
-//	return false;
-//}

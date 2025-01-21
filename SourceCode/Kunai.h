@@ -14,5 +14,7 @@ void kunai_deinit();
 void kunai_update();
 void kunai_render();
 
-bool kunai_hit();
+void kunai_move();
+
+
 

@@ -92,7 +92,7 @@ void mato_update()
 		break;
 
 	case 1:
-		//パラメータの設定
+		
 
 		//敵データのクリア
 		for (int i = 0; i < MATO_MAX; i++)
@@ -101,12 +101,10 @@ void mato_update()
 			
 		}
 
+
+
 		mato_state++;
 		break;
-
-
-
-
 
 	
 	}
@@ -117,11 +115,11 @@ void mato_render()
 {
 	sprite_render(sprMato, 0, 0);
 
-		//当たり判定の赤円
-	primitive::circle(
-		mato.pos + Kunai.offset,
-		Kunai.radius, { 0.3,0.3 },
-		ToRadian(0), { 1,0,0,0.2f }
-	);
+	//	//当たり判定の赤円
+	//primitive::circle(
+	//	mato.pos + Kunai.offset,
+	//	Kunai.radius, { 0.3,0.3 },
+	//	ToRadian(0), { 1,0,0,0.2f }
+	//);
 }
 
