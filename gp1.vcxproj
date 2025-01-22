@@ -191,7 +191,6 @@ attrib +h SourceCode\gp1.log</Command>
     <ClInclude Include="SourceCode\Mato.h" />
     <ClInclude Include="SourceCode\obj2d.h" />
     <ClInclude Include="SourceCode\scene_game.h" />
-    <ClInclude Include="SourceCode\scene_result.h" />
     <ClInclude Include="SourceCode\scene_title.h" />
   </ItemGroup>
   <ItemGroup>
@@ -220,7 +219,6 @@ attrib +h SourceCode\gp1.log</Command>
     <ClCompile Include="SourceCode\main.cpp" />
     <ClCompile Include="SourceCode\Mato.cpp" />
     <ClCompile Include="SourceCode\scene_game.cpp" />
-    <ClCompile Include="SourceCode\scene_result.cpp" />
     <ClCompile Include="SourceCode\scene_title.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
