@@ -12,17 +12,27 @@ extern int score =0;
 int game_state;
 int game_timer;
 int counter;
+
+//的１
 float posx1 = 1280 / 2;//的1のposx
 float posy1 = 850;//的1のposy
 float velocity1 = 0.0f;//初期速度
 float accelerator1 = -0.3f;//初期加速度
 int mato_state1 = 0;//状態を管理
 
+//的２
 float posx2 = 1400;//的1のposx
 float posy2 = 720/2;//的1のposy
 float velocity2 = 0.0f;//初期速度
 float accelerator2 = -0.3f;//初期加速度
 int mato_state2 = 0;//状態を管理
+
+//的３
+float posx3 = 1400;//的3のposx
+float posy3 = 720 / 2;//的3のposy
+float velocity3 = 0.0f;//初期速度
+float accelerator3 = -0.3f;//初期加速度
+int mato_state3 = 0;//状態を管理
 
 //------フラグ------
 bool isHit;//的があった時の判定
@@ -40,9 +50,6 @@ Sprite* sprCenter;
 Sprite* sprK;
 
 Sprite* sprMato1;
-
-
-
 Sprite* sprMato2;
 Sprite* sprMato3;
 Sprite* sprMato4;
