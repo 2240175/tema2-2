@@ -248,7 +248,7 @@ void game_result() {
 
 void game_hit1()//“–‚½‚è”»’è
 {
-	//“–‚½‚è”»’è
+	//“–‚½‚è”»’è//
 	float dx1 = Kunai.pos.x - posx1;
 	float dy1 = Kunai.pos.y - posy1;
 	float distance1 = sqrtf(dx1 * dx1 + dy1 * dy1);
