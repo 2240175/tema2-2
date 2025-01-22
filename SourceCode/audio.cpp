@@ -6,7 +6,12 @@
 void audio_init()
 {
     // 音楽の読み込み
-    music::load(0, L"./Data/Musics/bgm_maoudamashii_8bit29.wav");
+    music::load(0, L"./Data/Musics/title_bgm.wav");
+    music::load(1, L"./Data/Musics/琴.wav");
+    music::load(2, L"./Data/Musics/Wind.wav");
+    music::load(3, L"./Data/Musics/Launch.wav");
+    music::load(4, L"./Data/Musics/Break.wav");
+    music::load(5, L"./Data/Musics/尺八.wav");
 
     sound::load(XWB_SYSTEM, L"./Data/Sounds/system.xwb");    // メニューなどのSE
     sound::load(XWB_STAGE1, L"./Data/Sounds/stage1.xwb");    // ステージ用のSE

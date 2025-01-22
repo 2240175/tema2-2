@@ -10,6 +10,7 @@ extern int score =0;
 //------< 変数 >----------------------------------------------------------------
 int game_state;
 int game_timer;
+int counter;
 float posx1 = 1280 / 2;//的1のposx
 float posy1 = 850;//的1のposy
 float poskx1 = 1280 / 2;
@@ -50,6 +51,7 @@ void game_update()
 	{
 	case 0:
 		//////// 初期設定 ////////
+		music::play(2);
 		sprBack = sprite_load(L"./Data/Images/back.png");
 		sprCenter = sprite_load(L"./Data/Images/senter.png");
 		sprK = sprite_load(L"./Data/Images/Okunai.png");
@@ -87,6 +89,17 @@ void game_update()
 		}
 		//くないの更新
 		kunai_update();
+		if (TRG(0) & PAD_TRG1)
+		{
+			kunai_render();
+			Kunai.pos.y = 390;
+			counter++;
+			if (counter == 1)
+			
+			music::play(4);
+			music::play(3);
+			
+		}
 		//くないの動き
 		kunai_move();
 
@@ -151,6 +164,7 @@ void game_update()
 		if (isHit == true)
 		{
 			isHit = false;
+			music::stop(2);
 			nextScene = SCENE_TITLE;
 			break;
 		}
@@ -190,6 +204,7 @@ void game_reset()//ゲームのリセット
 }
 
 void game_result() {
+	music::stop(2);
 	nextScene = SCENE_TITLE;
 }
 
@@ -210,6 +225,7 @@ void game_hit()//当たり判定
 	}
 	else
 	{
+		music::stop(2);
 		nextScene = SCENE_RESULT;
 	}
 

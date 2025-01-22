@@ -63,7 +63,7 @@ void title_update()
 
         if (TRG(0) & PAD_START)
         {
-            sound::play(XWB_SYSTEM, XWB_SYSTEM_START);
+            music::play(1);
 
             nextScene = SCENE_GAME;
             break;
