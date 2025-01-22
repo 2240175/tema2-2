@@ -21,18 +21,33 @@ float accelerator1 = -0.3f;//初期加速度
 int mato_state1 = 0;//状態を管理
 
 //的２
-float posx2 = 1400;//的1のposx
+float posx2 = -80;//的1のposx
 float posy2 = 720/2;//的1のposy
 float velocity2 = 0.0f;//初期速度
 float accelerator2 = -0.3f;//初期加速度
 int mato_state2 = 0;//状態を管理
 
 //的３
-float posx3 = 1400;//的3のposx
-float posy3 = 720 / 2;//的3のposy
+float posx3 = -80;//的3のposx
+float posy3 = 800;//的3のposy
 float velocity3 = 0.0f;//初期速度
 float accelerator3 = -0.3f;//初期加速度
 int mato_state3 = 0;//状態を管理
+
+//的4
+float posx4 = -80;//的3のposx
+float posy4 = 800;//的3のposy
+float velocity4 = 0.0f;//初期速度
+float accelerator4 = -0.3f;//初期加速度
+int mato_state4 = 0;//状態を管理
+
+//的5
+float posx5 = -80;//的3のposx
+float posy5 = 800;//的3のposy
+float velocity5 = 0.0f;//初期速度
+float accelerator5 = -0.3f;//初期加速度
+int mato_state5 = 0;//状態を管理
+
 
 //------フラグ------
 bool isHit;//的があった時の判定
@@ -208,18 +223,67 @@ void game_update()
 		}
 		break;
 	
-
-
-	
 		
-	//case 4:
-	//	//３の的がヒットしたら次の的へ
-	//	if (isHit == true)
-	//	{
-	//		isHit = false;
-	//		game_state++;
-	//	}
-	//	break;
+	case 4:
+		mato_active3 = true;
+
+		if (mato_active3)
+		{
+			if (mato_state3 == 0) {  // 1000 から 360 に移動
+				velocity3 += accelerator3;
+				posx3 += velocity3;
+				if (posx3 <= 0.0f) {  // 到達
+					posx3 = 0.0f;
+					velocity3 = 2.0f;    // リセット
+					accelerator3 = 2.0f; // 次の移動用加速度
+				}
+			}
+		}
+
+
+		//くないの更新
+		kunai_update();
+		if (TRG(0) & PAD_TRG1)
+		{
+			kunai_render();
+			Kunai.pos.y = 390;
+			counter = 0;
+			counter++;
+			if (counter == 1)
+				music::play(1);
+			music::play(2);
+		}
+		//くないの動き
+		kunai_move();
+
+		// SPACE PUSHED
+		if (TRG(0) & PAD_TRG1)
+		{
+			game_hit3();
+			mato_state++;
+
+		}
+
+		//2の的がヒットしたら次の的へ
+		if (isHit == true)
+		{
+			mato_active3 = false;
+
+			safe_delete(sprMato3);
+			isHit = false;
+			game_state++;
+		}
+		break;
+
+
+
+		//３の的がヒットしたら次の的へ
+		if (isHit == true)
+		{
+			isHit = false;
+			game_state++;
+		}
+		break;
 	//case 5:
 	//	//４の的がヒットしたら次の的へ
 	//	if (isHit == true)
@@ -250,6 +314,10 @@ void game_render()
 	sprite_render(sprCenter, 1280 / 2, 720 / 2, 1.5f, 1.5f, 0, 0, 128, 128, 128 / 2, 128 / 2, 0.0f, 0.8f, 0.8f, 0.8f, 0.8f, true);
 	sprite_render(sprMato1, posx1, posy1, 1.5f, 1.5f, 0, 0, 256, 256, 256 / 2, 256 / 2, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, true);//的
 	sprite_render(sprMato2, posx2, posy2, 1.5f, 1.5f, 0, 0, 256, 256, 256 / 2, 256 / 2, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, true);//的
+	sprite_render(sprMato3, posx3, posy3, 1.5f, 1.5f, 0, 0, 256, 256, 256 / 2, 256 / 2, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, true);//的
+	sprite_render(sprMato4, posx4, posy4, 1.5f, 1.5f, 0, 0, 256, 256, 256 / 2, 256 / 2, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, true);//的
+	sprite_render(sprMato5, posx5, posy5, 1.5f, 1.5f, 0, 0, 256, 256, 256 / 2, 256 / 2, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, true);//的
+
 	//くない描画
 	kunai_render();
 
@@ -323,6 +391,72 @@ void game_hit2()//当たり判定
 
 }
 
+
+void game_hit3()//当たり判定
+{
+	//当たり判定
+	float dx3 = Kunai.pos.x - posx3;
+	float dy3 = Kunai.pos.y - posy3;
+	float distance3 = sqrtf(dx3 * dx3 + dy3 * dy3);
+
+	if (distance3 < 120)
+	{
+		isHit = true;
+		score = ((120.0f - distance3) / 120.0f); // 1.0 - 0.0
+		score *= 100;
+
+	}
+	else
+	{
+		music::stop(3);
+		nextScene = SCENE_RESULT;
+	}
+
+}
+
+void game_hit4()//当たり判定
+{
+	//当たり判定
+	float dx4 = Kunai.pos.x - posx4;
+	float dy4 = Kunai.pos.y - posy4;
+	float distance4 = sqrtf(dx4 * dx4 + dy4 * dy4);
+
+	if (distance4 < 120)
+	{
+		isHit = true;
+		score = ((120.0f - distance4) / 120.0f); // 1.0 - 0.0
+		score *= 100;
+
+	}
+	else
+	{
+		music::stop(3);
+		nextScene = SCENE_RESULT;
+	}
+
+}
+
+void game_hit5()//当たり判定
+{
+	//当たり判定
+	float dx5 = Kunai.pos.x - posx5;
+	float dy5 = Kunai.pos.y - posy5;
+	float distance5 = sqrtf(dx5 * dx5 + dy5 * dy5);
+
+	if (distance5 < 120)
+	{
+		isHit = true;
+		score = ((120.0f - distance5) / 120.0f); // 1.0 - 0.0
+		score *= 100;
+
+	}
+	else
+	{
+		music::stop(3);
+		nextScene = SCENE_RESULT;
+	}
+
+}
 
 
 
