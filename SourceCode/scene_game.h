@@ -16,6 +16,7 @@ void game_update();
 void game_render();
 void game_result();
 void game_reset();
+void game_hit();
 
 #endif//SCENE_GAME_H
 	

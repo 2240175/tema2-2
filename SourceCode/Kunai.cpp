@@ -37,7 +37,7 @@ void kunai_update()
 		//kunai初期設定
 		Kunai = {};
 		Kunai.timer = 0;
-		Kunai.pos = { 1280/ 2,760/2 };//画像の位置
+		Kunai.pos = { 1280/ 2,760 };//画像の位置
 		Kunai.scale = { 1.0f,1.0f };//大きさ
 		Kunai.texSize = { PLAYER_TEX_W, PLAYER_TEX_H };//画像のサイズ
 		Kunai.pivot = { PLAYER_PIVOT_X, PLAYER_PIVOT_Y };//中心
@@ -48,13 +48,7 @@ void kunai_update()
 
 		kunai_state++;
 		
-	case 3:
-		if (TRG(0) & PAD_TRG1)
-		{
-
-			Kunai.pos.y = 390;
-
-		}
+	
 	
 	}
 }

@@ -87,37 +87,42 @@ void game_update()
 		}
 		//くないの更新
 		kunai_update();
-		//区内の動き
+		//くないの動き
 		kunai_move();
+
 		// SPACE PUSHED
 		if (TRG(0) & PAD_TRG1)
 		{
-			//float distance = fabsf((720 / 2) - posy1);
-
-			float dx = Kunai.pos.x - posx1;
-			float dy = Kunai.pos.y - posy1;
-			float distance = sqrtf(dx * dx + dy * dy);
-
-			if (distance < 120)
-			{
-				isHit = true;
-				score = ((120.0f - distance) / 120.0f); // 1.0 - 0.0
-				score *= 100;
-				
-			}
-			else
-			{
-				nextScene = SCENE_RESULT;
-			}
+			game_hit();
+			
 		}
 		//１の的がヒットしたら次の的へ
 		if (isHit == true)
 		{
+			mato_active1 = false;
+			safe_delete(sprMato1);
 			isHit = false;
 			game_state++;
 		}
 		break;
+
 	case 3:
+		if (mato_active1)
+		{
+			if (mato_state1 == 0) {  // 1000 から 360 に移動
+				velocity1 += accelerator1;
+				posy1 += velocity1;
+				if (posy1 <= 0.0f) {  // 到達
+					posy1 = 0.0f;
+					velocity1 = 2.0f;    // リセット
+					accelerator1 = 2.0f; // 次の移動用加速度
+				}
+			}
+		}
+
+
+
+	
 		//２の的がヒットしたら次の的へ
 		if (isHit == true)
 		{
@@ -177,17 +182,38 @@ void game_render()
 }
 
 
-void game_reset()
+void game_reset()//ゲームのリセット
 {
-	game_state = 1;
+	game_state = 0;
 	kunai_state = 1;
 	mato_state = 1;
 }
+
 void game_result() {
 	nextScene = SCENE_TITLE;
 }
 
 
+
+void game_hit()//当たり判定
+{
+	float dx = Kunai.pos.x - posx1;
+	float dy = Kunai.pos.y - posy1;
+	float distance = sqrtf(dx * dx + dy * dy);
+
+	if (distance < 120)
+	{
+		isHit = true;
+		score = ((120.0f - distance) / 120.0f); // 1.0 - 0.0
+		score *= 100;
+
+	}
+	else
+	{
+		nextScene = SCENE_RESULT;
+	}
+
+}
 
 
 
