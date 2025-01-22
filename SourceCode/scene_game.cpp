@@ -123,7 +123,7 @@ void game_update()
 			Kunai.pos.y = 390;
 			counter++;
 			if (counter == 1)
-				music::play(1);
+			music::play(1);
 			music::play(2);
 		}
 		//‚­‚È‚¢‚Ì“®‚«

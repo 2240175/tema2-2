@@ -20,7 +20,7 @@ void result_update()
 	switch (result_state)
 	{
 	case 0:
-		sprhaikei2 = sprite_load(L"./Data/Images/リザルト画面.png");
+		sprhaikei2 = sprite_load(L"./Data/Images/リザルト2.png");
 
 		result_state++;
 	case 1:
