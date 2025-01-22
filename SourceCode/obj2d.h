@@ -69,8 +69,6 @@ struct OBJ2D
     //TODO_15
     VECTOR2 speed;
 
-    //予備課題：ジャンプ用変数
-
 
     //円の当たり判定用変数
     float radius;

@@ -16,43 +16,6 @@ Sprite* sprMato;
 
 
 
-//的データ構造体
-struct MATO_DATA
-{
-	Sprite* sprMato;
-
-	const wchar_t* filePath;
-
-	VECTOR2 texPos;
-
-	VECTOR2 texSize;
-
-	VECTOR2 pivot;
-
-	float radius;
-
-};
-
-struct MATO_DATA matoData[] =
-{
-	{NULL, L"Data/Images/mato.png", {0, 0}, {256, 256}, {256, 256}, 30},
-
-};
-
-//敵の配置
-struct ENEMY_SET
-{
-	int area; //エリア数
-	int enemyType;//敵のタイプ
-	VECTOR2 pos;
-
-};
-
-struct ENEMY_SET enemySet[] =
-{
-	{0,0,{posX1,posY1}},//敵０
-
-};
 
 //初期更新
 void mato_init()
@@ -64,13 +27,9 @@ void mato_init()
 //終了更新
 void mato_deinit()
 {
-	//dataNumでfor文を回す
-	//dataNum回matoData[i].sprMatoを削除
-	int dataNum = ARRAYSIZE(matoData);
-	for (int i = 0; i = dataNum; i++)
-	{
-		safe_delete(matoData[i].sprMato);
-	}
+
+		safe_delete(sprMato);
+	
 }
 
 void mato_update()
@@ -79,15 +38,8 @@ void mato_update()
 	{
 	case 0:
 
-		int dataNum;
+	
 
-		dataNum = sizeof(matoData) / sizeof(MATO_DATA);
-
-		//初期設定
-		for (int i = 0; i < dataNum; i++)
-		{
-			matoData[i].sprMato = sprite_load(matoData[i].filePath);
-		}
 		mato_state++;
 		break;
 
@@ -105,7 +57,7 @@ void mato_update()
 
 		mato_state++;
 		break;
-
+ 
 	
 	}
 }
