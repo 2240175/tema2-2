@@ -1,21 +1,5 @@
 #include "all.h"
-//#include <cmath> // sinやcosを使うために必要
-//
-//// 的の構造体またはクラス
-//struct Target {
-//    float x, y;            // 的の位置
-//    float centerX, centerY; // 的の中心位置（初期値）
-//    float amplitude;       // 動きの振幅
-//    float speed;           // 動く速さ
-//
-//    Target(float startX, float startY, float amp, float spd)
-//        : x(startX), y(startY), centerX(startX), centerY(startY), amplitude(amp), speed(spd) {}
-//
-//    // 的の位置を更新
-//    void update(float deltaTime) {
-//        x = centerX + amplitude * std::sin(speed * deltaTime);
-//    }
-//};
+
 
 int title_state;
 int title_timer;

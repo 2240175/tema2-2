@@ -105,6 +105,7 @@ void game_update()
 				isHit = true;
 				score = ((120.0f - distance) / 120.0f); // 1.0 - 0.0
 				score *= 100;
+				
 			}
 			else
 			{
