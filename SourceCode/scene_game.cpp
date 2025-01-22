@@ -21,25 +21,30 @@ int game_state;
 int game_timer;
 
 
+float poskx1 = 1280/2;
+float posky1 = 800;
+
+int Kstay_timer ;
 
 float posx1 =1280/2;//的1のposx
 float posy1 = 850;//的1のposy
-float poskx1 = 1280/2;
-float posky1 = 800;
-float Kspeed1 = 0.0f;
-int Kstay_timer ;
-
-
 float velocity1 = 0.0f;//初期速度
-float accelerator1 = -0.3f;//初期加速度
+float accelerator1 = -0.2f;//初期加速度
 int mato_state1 = 0;//状態を管理
+
+float posx2 = 1450;//的２のposx
+float posy2 = 720/2;//的２のposy
+float velocity2 = 0.0f;//初期速度
+float accelerator2 = -0.1f;//初期加速度
+int mato_state2 = 0;//状態を管理
 
 
 
 
 //------フラグ------
 bool isHit;//的があった時の判定
-bool mato_active1=false;//的の動き
+bool mato_active1=false;//的1の動き
+bool mato_active2=false;//的２
 
 //-----画像-------
 Sprite* sprBack;
@@ -119,18 +124,16 @@ void game_update()
 
         if (mato_active1)
         {
+                
             if (mato_state1 == 0) {  // 1000 から 360 に移動
 
                 velocity1 += accelerator1;
                 posy1 += velocity1;
 
-                if (posy1 <= 0.0f) {  // 到達 
-
-                    posy1 = 0.0f;
-                    velocity1 = 2.0f;    // リセット
-                    accelerator1 = 2.0f; // 次の移動用加速度
-
-
+                if (posy1 == 0.01f)
+                {
+                
+                    safe_delete(sprMato1);
 
                 }
             }
@@ -142,9 +145,14 @@ void game_update()
         kunai_update();
 
         //区内の動き
-        kunai_move();
+        //kunai_move();
 
 
+        if (TRG(0) & PAD_TRG1)
+        {
+            Kunai.pos.y = 390;
+            game_state++;
+        }
 
 
         //１の的がヒットしたら次の的へ
@@ -158,6 +166,35 @@ void game_update()
    
 
     case 3:
+
+        if (mato_active2)
+        {
+            if (mato_state2 == 0) {  // 1000 から 360 に移動
+
+                velocity2 += accelerator2;
+                posy1 += velocity1;
+
+                if (posy1 <= 0.0f) {  // 到達 
+
+                    ///posy1 = 0.0f;
+                    //velocity1 = 2.0f;    // リセット
+                    // accelerator1 = 1.0f; // 次の移動用加速度
+
+
+
+                }
+            }
+
+        }
+
+
+        //くないの更新
+        kunai_update();
+
+        //区内の動き
+        kunai_move();
+
+
 
         //２の的がヒットしたら次の的へ
         if (isHit == true)
