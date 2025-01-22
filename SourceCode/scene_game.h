@@ -10,7 +10,12 @@ void game_update();
 void game_render();
 void game_result();
 void game_reset();
-void game_hit();
+
+void game_hit1();
+void game_hit2();
+void game_hit3();
+void game_hit4();
+void game_hit5();
 
 #endif//SCENE_GAME_H
 	

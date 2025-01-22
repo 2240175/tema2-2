@@ -56,14 +56,9 @@ void kunai_update()
 void kunai_move()
 {
 
-
-
 	if (TRG(0) & PAD_TRG1)
 	{	
 		Kunai.pos.y = 390;
-
-		
-
 	}
 	
 }

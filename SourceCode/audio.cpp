@@ -7,10 +7,10 @@ void audio_init()
 {
     // ‰¹Šy‚Ì“Ç‚İ‚İ
     music::load(0, L"./Data/Musics/title_bgm.wav");
-    music::load(1, L"./Data/Musics/‹Õ.wav");
-    music::load(2, L"./Data/Musics/Wind.wav");
-    music::load(3, L"./Data/Musics/Launch.wav");
-    music::load(4, L"./Data/Musics/Break.wav");
+    music::load(1, L"./Data/Musics/Break.wav");
+    music::load(2, L"./Data/Musics/Launch.wav");
+    music::load(3, L"./Data/Musics/Wind.wav");
+    music::load(4, L"./Data/Musics/‹Õ.wav");
     music::load(5, L"./Data/Musics/Ú”ª.wav");
 
     sound::load(XWB_SYSTEM, L"./Data/Sounds/system.xwb");    // ƒƒjƒ…[‚È‚Ç‚ÌSE

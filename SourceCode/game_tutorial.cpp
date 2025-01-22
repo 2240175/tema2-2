@@ -111,7 +111,6 @@ void tutorial_update()
 	case 10:
 		if (TRG(0) & PAD_TRG1)
 		{
-			music::play(1);
 			nextScene = SCENE_GAME;
 			tutorial_state = 0;
 		}

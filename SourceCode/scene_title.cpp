@@ -63,7 +63,7 @@ void title_update()
 
         if (TRG(0) & PAD_START)
         {
-            music::play(1);
+            music::play(4);
 
             nextScene = SCENE_GAME;
             break;
