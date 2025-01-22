@@ -1,9 +1,10 @@
 #include "all.h"
 
+
 int result_state;
 int result_timer;
 float resulttime;
-
+extern int score;
 Sprite* sprhaikei2;
 
 void result_init()
@@ -57,6 +58,8 @@ void result_render()
 {
 	// ‰æ–Ê‚ğÂ‚Å“h‚è‚Â‚Ô‚·
 	GameLib::clear(0.3f, 0.5f, 1.0f);
-
+	
 	sprite_render(sprhaikei2, 0, 0);
+	std::string scoreText = std::to_string(score);
+	text_out(6, scoreText, 250, 400, 2.5f, 2.5f,1.0,0,0);
 }
