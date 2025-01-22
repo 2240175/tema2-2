@@ -16,6 +16,7 @@ Sprite* sprMato;
 
 
 
+//<<<<<<< HEAD
 //“Iƒf[ƒ^\‘¢‘Ì
 struct MATO_DATA
 {
@@ -51,8 +52,15 @@ struct ENEMY_SET
 struct ENEMY_SET enemySet[] =
 {
 	{0,0,{posX1,posY1}},//“G‚O
+	{0,0,{640,-600}},//“G1
+	{0,0,{1800,360}},//“G2
+	{0,0,{1800,540}},//“G2
+	
+
 
 };
+//=======
+//>>>>>>> ba04d5c80b0cf390fcabdc94f92c521cee2d1fbf
 
 //‰ŠúXV
 void mato_init()
@@ -64,13 +72,9 @@ void mato_init()
 //I—¹XV
 void mato_deinit()
 {
-	//dataNum‚Åfor•¶‚ğ‰ñ‚·
-	//dataNum‰ñmatoData[i].sprMato‚ğíœ
-	int dataNum = ARRAYSIZE(matoData);
-	for (int i = 0; i = dataNum; i++)
-	{
-		safe_delete(matoData[i].sprMato);
-	}
+
+		safe_delete(sprMato);
+	
 }
 
 void mato_update()
@@ -79,15 +83,8 @@ void mato_update()
 	{
 	case 0:
 
-		int dataNum;
+	
 
-		dataNum = sizeof(matoData) / sizeof(MATO_DATA);
-
-		//‰Šúİ’è
-		for (int i = 0; i < dataNum; i++)
-		{
-			matoData[i].sprMato = sprite_load(matoData[i].filePath);
-		}
 		mato_state++;
 		break;
 
@@ -105,15 +102,21 @@ void mato_update()
 
 		mato_state++;
 		break;
-
-	
+//<<<<<<< HEAD
+//=======
+// 
+//	
+//>>>>>>> ba04d5c80b0cf390fcabdc94f92c521cee2d1fbf
 	}
 }
+void enemy1()
+{
 
+}
 //•`‰æ
 void mato_render()
 {
-	sprite_render(sprMato, 0, 0);
+	//sprite_render(sprMato, 0, 0);
 
 	//	//“–‚½‚è”»’è‚ÌÔ‰~
 	//primitive::circle(

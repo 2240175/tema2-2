@@ -84,7 +84,11 @@ void title_update()
             nextScene = SCENE_GAME;
             break;
         }
-
+        if (TRG(0) & PAD_TRG1)
+        {
+            nextScene = SCENE_TUTORIAL1;
+            break;
+        }
         break;
     }
 

@@ -110,7 +110,8 @@ namespace GameLib
 
 #ifdef _DEBUG
         // フルスクリーンの設定（念のためデバッグモードでは不可）
-        isFullscreen = true;
+        isFullscreen = false;
+        //isFullscreen = true;
 #endif
 
         // ウインドウの初期設定
