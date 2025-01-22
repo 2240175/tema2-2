@@ -29,9 +29,7 @@ Sprite* sprPush;
 Sprite* sprCenter;
 Sprite* sprK;
 Sprite* sprMato1;
-//--------------------------------------
-//  ƒQ[ƒ€‚Ì‰Šúİ’è
-//--------------------------------------
+
 void game_init()
 {
 	game_state = 0;
