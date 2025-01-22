@@ -1,4 +1,3 @@
-#include "Mato.h"
 #include"all.h"
 
 using namespace std;
@@ -11,9 +10,6 @@ float posX1;
 float posY1;//的１の座標
 
 //宣言
-OBJ2D mato[MATO_MAX];
-Sprite* sprMato;
-
 
 
 
@@ -30,7 +26,7 @@ void mato_init()
 void mato_deinit()
 {
 
-		safe_delete(sprMato);
+
 	
 }
 
@@ -40,7 +36,7 @@ void mato_update()
 	{
 	case 0:
 
-	
+
 
 		mato_state++;
 		break;
@@ -48,28 +44,19 @@ void mato_update()
 	case 1:
 		
 
-		//敵データのクリア
-		for (int i = 0; i < MATO_MAX; i++)
-		{
-			mato[i] = {};
-			
-		}
+	
 
 
-
-		mato_state++;
 		break;
 
 	}
 }
-void enemy1()
-{
 
-}
 //描画
 void mato_render()
 {
 	//sprite_render(sprMato, 0, 0);
+
 
 	//	//当たり判定の赤円
 	//primitive::circle(

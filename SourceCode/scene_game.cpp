@@ -1,7 +1,7 @@
 
 //----< インクルード >-----------------------------------------------------------
 #include "all.h"
-#include"Mato.h"
+//#include"Mato.h"
 #include<sstream>
 extern int kunai_state;
 extern int mato_state;
@@ -36,7 +36,7 @@ void game_init()
 {
 	game_state = 0;
 	game_timer = 0;
-	Kstay_timer = 0;
+
 }
 void game_deinit()
 {
@@ -55,7 +55,10 @@ void game_update()
 		sprBack = sprite_load(L"./Data/Images/back.png");
 		sprCenter = sprite_load(L"./Data/Images/senter.png");
 		sprK = sprite_load(L"./Data/Images/Okunai.png");
+
 		sprMato1 = sprite_load(L"./Data/Images/mato.png");
+
+
 		//くないの初期設定
 		kunai_init();
 		//的の初期設定
@@ -87,6 +90,7 @@ void game_update()
 				}
 			}
 		}
+
 		//くないの更新
 		kunai_update();
 		if (TRG(0) & PAD_TRG1)
@@ -107,12 +111,14 @@ void game_update()
 		if (TRG(0) & PAD_TRG1)
 		{
 			game_hit();
+			mato_state++;
 			
 		}
 		//１の的がヒットしたら次の的へ
 		if (isHit == true)
 		{
 			mato_active1 = false;
+
 			safe_delete(sprMato1);
 			isHit = false;
 			game_state++;
@@ -120,19 +126,8 @@ void game_update()
 		break;
 
 	case 3:
-		if (mato_active1)
-		{
-			if (mato_state1 == 0) {  // 1000 から 360 に移動
-				velocity1 += accelerator1;
-				posy1 += velocity1;
-				if (posy1 <= 0.0f) {  // 到達
-					posy1 = 0.0f;
-					velocity1 = 2.0f;    // リセット
-					accelerator1 = 2.0f; // 次の移動用加速度
-				}
-			}
-		}
 
+	
 
 
 	
