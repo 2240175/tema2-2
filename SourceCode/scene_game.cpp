@@ -5,6 +5,8 @@
 #include<sstream>
 extern int kunai_state;
 extern int mato_state;
+extern int score =0;
+
 //------< 変数 >----------------------------------------------------------------
 int game_state;
 int game_timer;
@@ -41,7 +43,7 @@ void game_deinit()
 	kunai_deinit();
 	safe_delete(sprBack);
 }
-int score = 0;
+
 void game_update()
 {
 	switch (game_state)
@@ -56,23 +58,20 @@ void game_update()
 		kunai_init();
 		//的の初期設定
 		mato_init();
+
+
 		game_state++;
 	case 1:
 		//////// パラメータの設定 ////////
 		GameLib::setBlendMode(Blender::BS_ALPHA);
-		debug::setString("");
-		debug::setString("game_state:%d", game_state);
-		debug::setString("game_timer:%d", game_timer);
-		debug::setString("Kstay_timer:%d", Kstay_timer);
-		debug::setString("hantei: % d", isHit);
-		POINT point;                                            // 位置用の変数を宣言する
-		GetCursorPos(&point);                                   // スクリーン座標を取得する
-		ScreenToClient(window::getHwnd(), &point);              // クライアント座標に変換する
-		debug::setString("x = %d, y = %d", point.x, point.y);
+
+		
+
 		game_state++;
 		/*fallthrough*/
+	
 	case 2:
-		//////// 通常時 ////////
+
 		mato_active1 = true;
 		if (mato_active1)
 		{
@@ -93,13 +92,12 @@ void game_update()
 		// SPACE PUSHED
 		if (TRG(0) & PAD_TRG1)
 		{
-#if 1
-			float distance = fabsf((720 / 2) - posy1);
-#else
+			//float distance = fabsf((720 / 2) - posy1);
+
 			float dx = Kunai.pos.x - posx1;
 			float dy = Kunai.pos.y - posy1;
 			float distance = sqrtf(dx * dx + dy * dy);
-#endif
+
 			if (distance < 120)
 			{
 				isHit = true;
@@ -165,7 +163,19 @@ void game_render()
 	sprite_render(sprMato1, posx1, posy1, 1.5f, 1.5f, 0, 0, 256, 256, 256 / 2, 256 / 2, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, true);//的
 	//くない描画
 	kunai_render();
+
+
+	debug::setString("game_state:%d", game_state);
+	debug::setString("game_timer:%d", game_timer);
+	debug::setString("score: % d", score);
+	POINT point;                                            // 位置用の変数を宣言する
+	GetCursorPos(&point);                                   // スクリーン座標を取得する
+	ScreenToClient(window::getHwnd(), &point);              // クライアント座標に変換する
+	debug::setString("x = %d, y = %d", point.x, point.y);
+
 }
+
+
 void game_reset()
 {
 	game_state = 1;
