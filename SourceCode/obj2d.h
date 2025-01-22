@@ -23,12 +23,12 @@ struct OBJ2D
     int moveAlg;
 
     VECTOR2 speed;
-//<<<<<<< HEAD
+
 //=======
 
 
     //‰~‚Ì“–‚½‚è”»’è—p•Ï”
-//>>>>>>> ba04d5c80b0cf390fcabdc94f92c521cee2d1fbf
+
     float radius;
     VECTOR2 offset;
 };

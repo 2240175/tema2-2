@@ -18,3 +18,4 @@ void game_result();
 void game_reset();
 
 #endif//SCENE_GAME_H
+	
