@@ -169,6 +169,16 @@ void game_update()
 
 		//‚­‚È‚¢‚ÌXV
 		kunai_update();
+		if (TRG(0) & PAD_TRG1)
+		{
+			kunai_render();
+			Kunai.pos.y = 390;
+			counter = 0;
+			counter++;
+			if (counter == 1)
+			music::play(1);
+			music::play(2);
+		}
 		//‚­‚È‚¢‚Ì“®‚«
 		kunai_move();
 
