@@ -140,6 +140,7 @@ void game_update()
 
 		//くないの更新
 		kunai_update(); {
+			
 			if (counter == 0) {
 				if (game_timer > 120)
 				{
@@ -155,6 +156,7 @@ void game_update()
 				music::play(1);
 				music::play(2);
 				game_timer = 0;
+				counter = 0;
 			}
 		}
 		//くないの動き
@@ -200,6 +202,7 @@ void game_update()
 
 		//くないの更新
 		kunai_update(); {
+			
 			if (counter == 0) {
 				if (game_timer > 120)
 				{
@@ -215,6 +218,7 @@ void game_update()
 				music::play(1);
 				music::play(2);
 				game_timer = 0;
+				counter = 0;
 			}
 		}
 		//くないの動き
@@ -274,6 +278,7 @@ void game_update()
 					music::play(1);
 				music::play(2);
 				game_timer = 0;
+				counter = 0;
 			}
 		}
 		//くないの動き
