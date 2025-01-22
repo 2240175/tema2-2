@@ -23,6 +23,7 @@
 
 #include "info.h"
 #include "scene_game.h"
+#include "scene_game2.h"
 #include "scene_title.h"
 #include "game_tutorial.h"
 #include "game_result.h"
