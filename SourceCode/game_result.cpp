@@ -20,7 +20,7 @@ void result_update()
 	switch (result_state)
 	{
 	case 0:
-		sprhaikei2 = sprite_load(L"./Data/Images/‚è‚´‚é‚Æ.png");
+		sprhaikei2 = sprite_load(L"./Data/Images/ƒŠƒUƒ‹ƒg‰æ–Ê.png");
 
 		result_state++;
 	case 1:
@@ -36,7 +36,7 @@ void result_update()
 		if (!(STATE(0) & PAD_TRG1) || STATE(0) & PAD_TRG1)
 		{
 			resulttime += 1;
-			if (resulttime > 30)
+			if (resulttime > 400)
 			{
 				game_result();
 			}
