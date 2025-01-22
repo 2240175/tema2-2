@@ -36,7 +36,7 @@ void result_update()
 		if (!(STATE(0) & PAD_TRG1) || STATE(0) & PAD_TRG1)
 		{
 			resulttime += 1;
-			if (resulttime > 30)
+			if (resulttime > 400)
 			{
 				game_result();
 			}
