@@ -51,6 +51,11 @@ struct ENEMY_SET
 struct ENEMY_SET enemySet[] =
 {
 	{0,0,{posX1,posY1}},//“G‚O
+	{0,0,{640,-600}},//“G1
+	{0,0,{1800,360}},//“G2
+	{0,0,{1800,540}},//“G2
+	
+
 
 };
 
@@ -103,25 +108,22 @@ void mato_update()
 
 		mato_state++;
 		break;
-
-
-
-
-
-	
 	}
 }
+void enemy1()
+{
 
+}
 //•`‰æ
 void mato_render()
 {
-	sprite_render(sprMato, 0, 0);
+	//sprite_render(sprMato, 0, 0);
 
-		//“–‚½‚è”»’è‚ÌÔ‰~
-	primitive::circle(
-		mato.pos + Kunai.offset,
-		Kunai.radius, { 0.3,0.3 },
-		ToRadian(0), { 1,0,0,0.2f }
-	);
+	//	//“–‚½‚è”»’è‚ÌÔ‰~
+	//primitive::circle(
+	//	mato.pos + Kunai.offset,
+	//	Kunai.radius, { 0.3,0.3 },
+	//	ToRadian(0), { 1,0,0,0.2f }
+	//);
 }
 

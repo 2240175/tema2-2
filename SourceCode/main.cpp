@@ -1,18 +1,15 @@
-//******************************************************************************
-//
-//
-//      main
-//
-//
-//******************************************************************************
 
-//------< インクルード >---------------------------------------------------------
 #include "all.h"
 
 //------< 変数 >----------------------------------------------------------------
 int curScene    = SCENE_NONE;
 int nextScene   = SCENE_TITLE;
+int outScrene0 = SCENE_RESULT;
 
+Sprite* result;
+Sprite* tutorial;
+
+int tutorial1 = SCENE_TUTORIAL1;
 //--------------------------------------
 //  WinMain（エントリポイント）
 //--------------------------------------
@@ -35,12 +32,16 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
                 title_deinit();
                 break;
 
-            case SCENE_INFO://説明画面
-
-                break;
-
             case SCENE_GAME:
                 game_deinit();
+                break;
+
+            case SCENE_RESULT:
+                result_deinit();
+                break;
+
+            case SCENE_TUTORIAL1:
+                tutorial_deinit();
                 break;
             }
 
@@ -51,12 +52,16 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
                 title_init();
                 break;
 
-            case SCENE_INFO:
-
-                break;
-
             case SCENE_GAME:
                 game_init();
+                break;
+
+            case SCENE_RESULT:
+                result_init();
+                break;
+
+            case SCENE_TUTORIAL1:
+                tutorial_init();
                 break;
             }
 
@@ -81,6 +86,16 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
             game_update();
             game_render();
             break;
+
+        case SCENE_RESULT:
+            result_update();
+            result_render();
+            break;
+
+        case SCENE_TUTORIAL1:
+            tutorial_update();
+            tutorial_render();
+            break;
         }
 
         // デバッグ文字列の描画
@@ -99,12 +114,16 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
         title_deinit();
         break;
 
-    case SCENE_INFO:
-
-        break;
-
     case SCENE_GAME:
         game_deinit();
+        break;
+
+    case SCENE_RESULT:
+        result_deinit();
+        break;
+
+    case SCENE_TUTORIAL1:
+        tutorial_deinit();
         break;
     }
 
