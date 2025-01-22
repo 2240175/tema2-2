@@ -346,7 +346,6 @@ void game_result() {
 }
 
 
-
 void game_hit1()//“–‚½‚è”»’è
 {
 	//“–‚½‚è”»’è//
@@ -356,9 +355,37 @@ void game_hit1()//“–‚½‚è”»’è
 
 	if (distance1 < 120)
 	{
+
 		isHit = true;
-		score = ((120.0f - distance1) / 120.0f); // 1.0 - 0.0
-		score *= 100;
+
+
+
+	 if (distance1 <= 10.0f)
+		{
+			score += 20;
+		}
+		if (distance1 <= 30.0f)
+		{
+			score += 20;
+		}
+		if (distance1 <= 50.0f)
+		{
+			score += 20;
+		}
+		if (distance1 <= 70.0f)
+		{
+			score += 10;
+		}
+		if (distance1 <= 90.0f)
+		{
+			score += 10;
+		}
+		if (distance1 <= 120.0f)
+		{
+			score += 10;
+		}
+		//score = ((120.0f - distance1) / 120.0f); // 1.0 - 0.0
+
 
 	}
 	else
@@ -376,22 +403,47 @@ void game_hit2()//“–‚½‚è”»’è
 	float dy2 = Kunai.pos.y - posy2;
 	float distance2 = sqrtf(dx2 * dx2 + dy2 * dy2);
 
-	if (distance2 < 120)
+
+	if (distance2 <= 120.0f)
 	{
 		isHit = true;
-		score = ((120.0f - distance2) / 120.0f); // 1.0 - 0.0
-		score *= 100;
+		if (distance2 <= 10.0f)
+		{
+
+			score += 20;
+		}
+		if (distance2 <= 30.0f)
+		{
+			score += 20;
+		}
+		if (distance2 <= 50.0f)
+		{
+			score += 20;
+		}
+		if (distance2 <= 70.0f)
+		{
+			score += 10;
+		}
+		if (distance2 <= 90.0f)
+		{
+			score += 10;
+		}
+		if (distance2 <= 120.0f)
+		{
+			score += 10;
+		}
+		//float new_score = ((120.0f - distance2) / 120.0f); // 1.0 - 0.0
 
 	}
+
 	else
 	{
 		music::stop(3);
 		nextScene = SCENE_RESULT;
 	}
 
+
 }
-
-
 void game_hit3()//“–‚½‚è”»’è
 {
 	//“–‚½‚è”»’è
@@ -399,21 +451,45 @@ void game_hit3()//“–‚½‚è”»’è
 	float dy3 = Kunai.pos.y - posy3;
 	float distance3 = sqrtf(dx3 * dx3 + dy3 * dy3);
 
-	if (distance3 < 120)
+
+	if (distance3 <= 120.0f)
 	{
 		isHit = true;
-		score = ((120.0f - distance3) / 120.0f); // 1.0 - 0.0
-		score *= 100;
+		if (distance3 <= 10.0f)
+		{
+
+			score += 20;
+		}
+		if (distance3 <= 30.0f)
+		{
+			score += 20;
+		}
+		if (distance3 <= 50.0f)
+		{
+			score += 20;
+		}
+		if (distance3 <= 70.0f)
+		{
+			score += 10;
+		}
+		if (distance3 <= 90.0f)
+		{
+			score += 10;
+		}
+		if (distance3 <= 120.0f)
+		{
+			score += 10;
+		}
+		//float new_score = ((120.0f - distance2) / 120.0f); // 1.0 - 0.0
 
 	}
+
 	else
 	{
 		music::stop(3);
 		nextScene = SCENE_RESULT;
 	}
-
 }
-
 void game_hit4()//“–‚½‚è”»’è
 {
 	//“–‚½‚è”»’è
@@ -421,21 +497,47 @@ void game_hit4()//“–‚½‚è”»’è
 	float dy4 = Kunai.pos.y - posy4;
 	float distance4 = sqrtf(dx4 * dx4 + dy4 * dy4);
 
-	if (distance4 < 120)
+
+	if (distance4 <= 120.0f)
 	{
 		isHit = true;
-		score = ((120.0f - distance4) / 120.0f); // 1.0 - 0.0
-		score *= 100;
+		if (distance4 <= 10.0f)
+		{
+
+			score += 20;
+		}
+		if (distance4 <= 30.0f)
+		{
+			score += 20;;
+		}
+		if (distance4 <= 50.0f)
+		{
+			score += 20;
+		}
+		if (distance4 <= 70.0f)
+		{
+			score += 10;
+		}
+		if (distance4 <= 90.0f)
+		{
+			score += 10;
+		}
+		if (distance4 <= 120.0f)
+		{
+			score += 10;
+		}
+		//float new_score = ((120.0f - distance2) / 120.0f); // 1.0 - 0.0
 
 	}
+
 	else
 	{
 		music::stop(3);
 		nextScene = SCENE_RESULT;
 	}
 
-}
 
+}
 void game_hit5()//“–‚½‚è”»’è
 {
 	//“–‚½‚è”»’è
@@ -443,20 +545,159 @@ void game_hit5()//“–‚½‚è”»’è
 	float dy5 = Kunai.pos.y - posy5;
 	float distance5 = sqrtf(dx5 * dx5 + dy5 * dy5);
 
-	if (distance5 < 120)
+
+	if (distance5 <= 120.0f)
 	{
 		isHit = true;
-		score = ((120.0f - distance5) / 120.0f); // 1.0 - 0.0
-		score *= 100;
+		if (distance5 <= 15.0f)
+		{
+
+			score += 20;
+		}
+		if (distance5 <= 30.0f)
+		{
+			score += 20;
+		}
+		if (distance5 <= 50.0f)
+		{
+			score += 20;
+		}
+		if (distance5 <= 70.0f)
+		{
+			score += 10;
+		}
+		if (distance5 <= 90.0f)
+		{
+			score += 10;
+		}
+		if (distance5 <= 120.0f)
+		{
+			score += 10;
+		}
+		//float new_score = ((120.0f - distance2) / 120.0f); // 1.0 - 0.0
 
 	}
+
 	else
 	{
 		music::stop(3);
 		nextScene = SCENE_RESULT;
 	}
 
+
 }
+
+
+//void game_hit1()//“–‚½‚è”»’è
+//{
+//	//“–‚½‚è”»’è//
+//	float dx1 = Kunai.pos.x - posx1;
+//	float dy1 = Kunai.pos.y - posy1;
+//	float distance1 = sqrtf(dx1 * dx1 + dy1 * dy1);
+//
+//	if (distance1 < 120)
+//	{
+//		isHit = true;
+//		score = ((120.0f - distance1) / 120.0f); // 1.0 - 0.0
+//		score *= 100;
+//
+//	}
+//	else
+//	{
+//		music::stop(3);
+//		nextScene = SCENE_RESULT;
+//	}
+//
+//}
+//
+//void game_hit2()//“–‚½‚è”»’è
+//{
+//	//“–‚½‚è”»’è
+//	float dx2 = Kunai.pos.x - posx2;
+//	float dy2 = Kunai.pos.y - posy2;
+//	float distance2 = sqrtf(dx2 * dx2 + dy2 * dy2);
+//
+//	if (distance2 < 120)
+//	{
+//		isHit = true;
+//		score = ((120.0f - distance2) / 120.0f); // 1.0 - 0.0
+//		score *= 100;
+//
+//	}
+//	else
+//	{
+//		music::stop(3);
+//		nextScene = SCENE_RESULT;
+//	}
+//
+//}
+//
+//
+//void game_hit3()//“–‚½‚è”»’è
+//{
+//	//“–‚½‚è”»’è
+//	float dx3 = Kunai.pos.x - posx3;
+//	float dy3 = Kunai.pos.y - posy3;
+//	float distance3 = sqrtf(dx3 * dx3 + dy3 * dy3);
+//
+//	if (distance3 < 120)
+//	{
+//		isHit = true;
+//		score = ((120.0f - distance3) / 120.0f); // 1.0 - 0.0
+//		score *= 100;
+//
+//	}
+//	else
+//	{
+//		music::stop(3);
+//		nextScene = SCENE_RESULT;
+//	}
+//
+//}
+//
+//void game_hit4()//“–‚½‚è”»’è
+//{
+//	//“–‚½‚è”»’è
+//	float dx4 = Kunai.pos.x - posx4;
+//	float dy4 = Kunai.pos.y - posy4;
+//	float distance4 = sqrtf(dx4 * dx4 + dy4 * dy4);
+//
+//	if (distance4 < 120)
+//	{
+//		isHit = true;
+//		score = ((120.0f - distance4) / 120.0f); // 1.0 - 0.0
+//		score *= 100;
+//
+//	}
+//	else
+//	{
+//		music::stop(3);
+//		nextScene = SCENE_RESULT;
+//	}
+//
+//}
+//
+//void game_hit5()//“–‚½‚è”»’è
+//{
+//	//“–‚½‚è”»’è
+//	float dx5 = Kunai.pos.x - posx5;
+//	float dy5 = Kunai.pos.y - posy5;
+//	float distance5 = sqrtf(dx5 * dx5 + dy5 * dy5);
+//
+//	if (distance5 < 120)
+//	{
+//		isHit = true;
+//		score = ((120.0f - distance5) / 120.0f); // 1.0 - 0.0
+//		score *= 100;
+//
+//	}
+//	else
+//	{
+//		music::stop(3);
+//		nextScene = SCENE_RESULT;
+//	}
+//
+//}
 
 
 
