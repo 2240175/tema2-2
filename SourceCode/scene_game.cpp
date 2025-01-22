@@ -84,15 +84,7 @@ void game_update()
 
 		//‚­‚È‚¢‚Ì‰Šúİ’è
 		kunai_init();
-		if (TRG(0) & PAD_TRG1)
-		{
-			kunai_render();
-			Kunai.pos.y = 390;
-			counter++;
-			if (counter == 1)
-			music::play(1);
-			music::play(2);
-		}
+	
 		//“I‚Ì‰Šúİ’è
 		mato_init();
 
@@ -125,6 +117,15 @@ void game_update()
 
 		//‚­‚È‚¢‚ÌXV
 		kunai_update();
+		if (TRG(0) & PAD_TRG1)
+		{
+			kunai_render();
+			Kunai.pos.y = 390;
+			counter++;
+			if (counter == 1)
+				music::play(1);
+			music::play(2);
+		}
 		//‚­‚È‚¢‚Ì“®‚«
 		kunai_move();
 
