@@ -537,13 +537,13 @@ void game_render()
 	kunai_render();
 
 
-	debug::setString("game_state:%d", game_state);
-	debug::setString("game_timer:%d", game_timer);
-	debug::setString("score: % d", score);
+	//debug::setString("game_state:%d", game_state);
+	//debug::setString("game_timer:%d", game_timer);
+	//debug::setString("score: % d", score);
 	POINT point;                                            // 位置用の変数を宣言する
 	GetCursorPos(&point);                                   // スクリーン座標を取得する
 	ScreenToClient(window::getHwnd(), &point);              // クライアント座標に変換する
-	debug::setString("x = %d, y = %d", point.x, point.y);
+	//debug::setString("x = %d, y = %d", point.x, point.y);
 
 }
 

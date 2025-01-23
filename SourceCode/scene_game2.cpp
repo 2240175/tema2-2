@@ -186,6 +186,7 @@ void game2_update()
 			if (counter2 == 0) {
 				if (game_timer2 > 280)
 				{
+					music::stop(3);
 					nextScene = SCENE_RESULT;
 				}
 			}
@@ -259,6 +260,7 @@ void game2_update()
 			if (counter2 == 0) {
 				if (game_timer2 > 120)
 				{
+					music::stop(3);
 					nextScene = SCENE_RESULT;
 				}
 			}
@@ -334,6 +336,7 @@ void game2_update()
 			if (counter2 == 0) {
 				if (game_timer2 > 280)
 				{
+					music::stop(3);
 					nextScene = SCENE_RESULT;
 				}
 			}
@@ -409,6 +412,7 @@ void game2_update()
 			if (counter2 == 0) {
 				if (game_timer2 > 120)
 				{
+					music::stop(3);
 					nextScene = SCENE_RESULT;
 				}
 			}
@@ -449,6 +453,7 @@ void game2_update()
 		}
 		break;
 	case 6:
+		music::stop(3);
 		nextScene = SCENE_RESULT;
 
 		break;
