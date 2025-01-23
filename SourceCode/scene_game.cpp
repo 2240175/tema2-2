@@ -11,6 +11,9 @@ extern int score =0;
 //------< 変数 >----------------------------------------------------------------
 int game_state;
 int game_timer;
+int wait_timer;
+int wait2_timer;
+int wait3_timer;
 int counter;
 
 //的１
@@ -63,6 +66,12 @@ Sprite* sprBack;
 Sprite* sprPush;
 Sprite* sprCenter;
 Sprite* sprK;
+Sprite* sprmati;
+Sprite* sprmati2;
+Sprite* sprmati3;
+Sprite* sprmati4;
+
+
 
 Sprite* sprMato1;
 Sprite* sprMato2;
@@ -76,6 +85,9 @@ void game_init()
 {
 	game_state = 0;
 	game_timer = 0;
+	wait_timer = 0;
+	wait2_timer = 0;
+	wait3_timer = 0;
 	mato_state = 0;
 
 	//的１
@@ -129,9 +141,14 @@ void game_update()
 	
 		music::play(3);
 		game_timer++;
+	
 		sprBack = sprite_load(L"./Data/Images/back.png");
 		sprCenter = sprite_load(L"./Data/Images/senter.png");
 		sprK = sprite_load(L"./Data/Images/Okunai.png");
+		sprmati  = sprite_load(L"./Data/Images/的UI1.png");
+		sprmati2 = sprite_load(L"./Data/Images/的UI2.png");
+		sprmati3 = sprite_load(L"./Data/Images/的UI3.png");
+		sprmati4 = sprite_load(L"./Data/Images/的UI4.png");
 
 		sprMato1 = sprite_load(L"./Data/Images/mato.png");
 		sprMato2 = sprite_load(L"./Data/Images/mato.png");
@@ -155,25 +172,35 @@ void game_update()
 	
 	case 2:
 
-		mato_active1 = true;
-		if (mato_active1)
+		sprite_render(sprmati, 0, 0);
+
+		if (game_timer > 110)
 		{
-			if (mato_state1 == 0) {  // 1000 から 360 に移動
-				velocity1 += accelerator1;
-				posy1 += velocity1;
-				if (posy1 <= 0.0f) {  // 到達
-					posy1 = 0.0f;
-					velocity1 = 0.0f;    // リセット
-					accelerator1 = -0.3f; // 次の移動用加速度
+			safe_delete(sprmati);
+		}
+
+		if (game_timer > 180)
+		{
+			
+			mato_active1 = true;
+			if (mato_active1)
+			{
+				if (mato_state1 == 0) {  // 1000 から 360 に移動
+					velocity1 += accelerator1;
+					posy1 += velocity1;
+					if (posy1 <= 0.0f) {  // 到達
+						posy1 = 0.0f;
+						velocity1 = 0.0f;    // リセット
+						accelerator1 = -0.3f; // 次の移動用加速度
+					}
 				}
 			}
 		}
-
 		//くないの更新
 		kunai_update(); {
 			
 			if (counter == 0) {
-				if (game_timer > 120)
+				if (game_timer > 300)
 				{
 					nextScene = SCENE_RESULT;
 				}
@@ -218,30 +245,41 @@ void game_update()
 		break;
 
 	case 3:
-		mato_active2 = true;
-	
-		if (mato_active2)
-		{
-			if (mato_state2 == 0) {  // 1000 から 360 に移動
-				velocity2 += accelerator2;
-				posx2 += velocity2;
-				if (posx2 >= 1280.0f) {  // 到達
-					posx2 = 0.0f;
-					velocity2 = 0.3f;    // リセット
-					accelerator2 = 0.4f; // 次の移動用加速度
-					
-				}
-				
-			}
-		}
+		wait_timer++;
+		
 		
 
+		if (wait_timer > 110)
+		{
+			safe_delete(sprmati2);
+		}
+	
+		if (wait_timer > 180)
+		{
+			mato_active2 = true;
+
+			if (mato_active2)
+			{
+				if (mato_state2 == 0) {  // 1000 から 360 に移動
+					velocity2 += accelerator2;
+					posx2 += velocity2;
+					if (posx2 >= 1280.0f) {  // 到達
+						posx2 = 0.0f;
+						velocity2 = 0.3f;    // リセット
+						accelerator2 = 0.4f; // 次の移動用加速度
+
+					}
+
+				}
+			}
+
+		}
 
 		//くないの更新
 		kunai_update();{
 			
 			if (counter == 0) {
-				if (game_timer > 120)
+				if (game_timer > 300)
 				{
 					nextScene = SCENE_RESULT;
 				}
@@ -283,52 +321,61 @@ void game_update()
 	
 		
 	case 4:
+		wait2_timer++;
+
+
+		if (wait2_timer > 110)
+		{
+			safe_delete(sprmati3);
+		}
 		mato_active3 = true;
 
-
 		
-		if (mato_active3)
+
+		if (wait2_timer > 180)
 		{
-			if (mato_state3 == 0) {  // 1000 から 360 に移動
+			if (mato_active3)
+			{
+				if (mato_state3 == 0) {  // 1000 から 360 に移動
 
-				velocityX3 += acceleratorX3;
+					velocityX3 += acceleratorX3;
 
-				// 座標を更新
-				posx3 += velocityX3;
+					// 座標を更新
+					posx3 += velocityX3;
 
-				// 到達判定 (-100.0f まで)
-				if (posx3 <= -100.0f) {
-					posx3 = -100.0f;  // 到達時に固定
-					velocityX3 = 0.0f; // 停止
-					mato_state3++;    // 次の状態に進む
+					// 到達判定 (-100.0f まで)
+					if (posx3 <= -100.0f) {
+						posx3 = -100.0f;  // 到達時に固定
+						velocityX3 = 0.0f; // 停止
+						mato_state3++;    // 次の状態に進む
+					}
+
+					//
+					//static float angle = 0;
+
+					//float w = 0.2; // 角速度
+					//float a = 200; // 振幅
+					//float s = 8; // 横向きの速さ
+
+					//angle += w;
+
+					//posx3 += s; // 目標地点に固定
+					//posy3 = 325 + a * sinf(angle);
+					//velocityX3 = 0.0f; // 停止
+
+
+
+
+
 				}
-
-				//
-				//static float angle = 0;
-
-				//float w = 0.2; // 角速度
-				//float a = 200; // 振幅
-				//float s = 8; // 横向きの速さ
-
-				//angle += w;
-
-				//posx3 += s; // 目標地点に固定
-				//posy3 = 325 + a * sinf(angle);
-				//velocityX3 = 0.0f; // 停止
-			
-
-
-
-
 			}
 		}
-	
 		
 
 		//くないの更新
 		kunai_update(); {
 			if (counter == 0) {
-				if (game_timer > 280)
+				if (game_timer > 300)
 				{
 					nextScene = SCENE_RESULT;
 				}
@@ -373,8 +420,16 @@ void game_update()
 
 	case 5:
 
-		mato_active4 = true;
-	
+		wait3_timer++;
+
+		if (wait3_timer > 110)
+		{
+			safe_delete(sprmati4);
+		}
+
+		if (wait3_timer > 180) {
+			mato_active4 = true;
+
 			if (mato_active4) {  // 的4がアクティブな場合
 				if (mato_state4 == 0) {  // 初期状態: 上から下に移動
 					// 加速度を適用して速度を更新
@@ -392,11 +447,11 @@ void game_update()
 				}
 			}
 
-
+		}
 		//くないの更新
 		kunai_update(); {
 			if (counter == 0) {
-				if (game_timer > 120)
+				if (game_timer > 300)
 				{
 					nextScene = SCENE_RESULT;
 				}
@@ -455,7 +510,19 @@ void game_render()
 	sprite_render(sprMato3, posx3, posy3, 1.5f, 1.5f, 0, 0, 256, 256, 256 / 2, 256 / 2, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, true);//的
 	sprite_render(sprMato4, posx4, posy4, 1.5f, 1.5f, 0, 0, 256, 256, 256 / 2, 256 / 2, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, true);//的
 	sprite_render(sprMato5, posx5, posy5, 1.5f, 1.5f, 0, 0, 256, 256, 256 / 2, 256 / 2, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, true);//的
-
+	sprite_render(sprmati, 0, 0);
+	if (wait_timer > 30)
+	{
+		sprite_render(sprmati2, 0, 0);
+	}
+	if (wait2_timer > 30)
+	{
+		sprite_render(sprmati3, 0, 0);
+	}
+	if (wait3_timer > 30)
+	{
+		sprite_render(sprmati4, 0, 0);
+	}
 	//くない描画
 	kunai_render();
 
