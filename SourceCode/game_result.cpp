@@ -44,6 +44,7 @@ void result_update()
 		if (TRG(0) & PAD_SELECT)
 		{
 			nextScene = SCENE_TITLE;
+			score = 0;
 		}
 
 		break;
