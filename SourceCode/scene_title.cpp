@@ -87,11 +87,6 @@ void title_render()
     sprite_render(sprEnter, 0, 0);
     sprite_render(sprSpace, 0, 0);
 
-  
-
-
-
-  
-
+ 
 
 }
