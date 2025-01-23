@@ -275,6 +275,7 @@ void game_update()
 		if (mato_active3)
 		{
 			if (mato_state3 == 0) {  // 1000 ‚©‚ç 360 ‚ÉˆÚ“®
+#if 0
 				velocityX3 += acceleratorX3;
 				velocityY3 += acceleratorY3;
 				posy3 += velocityY3;
@@ -288,6 +289,24 @@ void game_update()
 					velocityY3 = 0.0f; // ’âŽ~
 					mato_state3++; // ŽŸ‚Ìó‘Ô‚Éi‚Þ
 				}
+#else
+				
+				static float angle = 0;
+
+				float w = 0.2; // Šp‘¬“x
+				float a = 200; // U•
+				float s = 8; // ‰¡Œü‚«‚Ì‘¬‚³
+
+				angle += w;
+
+				posx3 += s; // –Ú•W’n“_‚ÉŒÅ’è
+				posy3 = 325 + a * sinf(angle);
+				velocityX3 = 0.0f; // ’âŽ~
+				velocityY3 = 0.0f; // ’âŽ~
+
+
+#endif // 0
+
 			}
 			
 		}
@@ -317,7 +336,7 @@ void game_update()
 		//‚­‚È‚¢‚ÌXV
 		kunai_update(); {
 			if (counter == 0) {
-				if (game_timer > 120)
+				if (game_timer > 280)
 				{
 					nextScene = SCENE_RESULT;
 				}
