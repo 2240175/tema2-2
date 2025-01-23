@@ -336,6 +336,7 @@ void game_update()
 	//		game_state++;
 	//	}
 	//	break;
+
 	//case 6:
 	//	//５の的がヒットしたら次の的へ
 	//	if (isHit == true)

@@ -32,7 +32,7 @@ void title_update()
     {
     case 0:
        
-        sprKi = sprite_load(L"./Data/Images/push.png");
+        //sprKi = sprite_load(L"./Data/Images/push.png");
         sprtitle = sprite_load(L"./Data/Images/title.png");
         sprSpace = sprite_load(L"./Data/Images/space.png");
         sprEnter = sprite_load(L"./Data/Images/enter.png");
