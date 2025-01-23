@@ -14,34 +14,32 @@ int game_timer;
 int counter;
 
 //的１
-float posx1 = 1280 / 2;//的1のposx
-float posy1 = 850;//的1のposy
-float velocity1 = 0.0f;//初期速度
-float accelerator1 = -0.3f;//初期加速度
-int mato_state1 = 0;//状態を管理
+float posx1 ;//的1のposx
+float posy1 ;//的1のposy
+float velocity1 ;//初期速度
+float accelerator1 ;//初期加速度
+int mato_state1;//状態を管理
 
 //的２
-float posx2 = -100;//的1のposx
-float posy2 = 720/2;//的1のposy
-float velocity2 = 0.3f;//初期速度
-float accelerator2 = 0.4f;//初期加速度
-int mato_state2 = 0;//状態を管理
+float posx2;//的1のposx
+float posy2;//的1のposy
+float velocity2;//初期速度
+float accelerator2;//初期加速度
+int mato_state2;//状態を管理
 
 //的３
-float posx3 =-151 ;//的3のposx
-float posy3 = 325;//的3のposy
-float velocityX3 = 0.0f;//初期速度
-float velocityY3 = 0.0f;//初期速度
-float acceleratorX3 = 0.3f;//初期加速度
-float acceleratorY3 = -0.3f;//初期加速度
-int mato_state3 = 0;//状態を管理
+float posx3;//的3のposx
+float posy3;//的3のposy
+float velocityX3;//初期速度
+float acceleratorX3;//初期加速度
+int mato_state3;//状態を管理
 
 //的4
-float posx4 = -80;//的3のposx
-float posy4 = 800;//的3のposy
-float velocity4 = 0.0f;//初期速度
-float accelerator4 = -0.3f;//初期加速度
-int mato_state4 = 0;//状態を管理
+float posx4;//的3のposx
+float posy4;//的3のposy
+float velocity4;//初期速度
+float accelerator4;//初期加速度
+int mato_state4;//状態を管理
 
 //的5
 float posx5 = -80;//的3のposx
@@ -87,11 +85,27 @@ void game_init()
 	accelerator1 = -0.3f;//初期加速度
 	mato_state1 = 0;//状態を管理
 
+	//的２
 	posx2 = -100.0f;
 	posy2 = 720.0f / 2.0f;
-	velocity2 = 0.3f;
-	accelerator2 = 0.4f;
+	velocity2 = 1.0f;
+	accelerator2 = 0.5f;
 	mato_state2 = 0;
+
+
+	//的３
+	posx3 = 1400;//的3のposx
+	posy3 = 720 / 2;//的3のposy
+	velocityX3 = -2.0f;//初期速度
+	acceleratorX3 =-1.0f;//初期加速度
+	mato_state3 = 0;//状態を管理
+
+	//的4
+	posx4 = 1280 / 2;//的3のposx
+	posy4 = -200;//的3のposy
+	velocity4 = 2.5f;//初期速度
+	accelerator4 = 1.0f;//初期加速度
+	mato_state4 = 0;//状態を管理
 
 
 }
@@ -224,7 +238,7 @@ void game_update()
 
 
 		//くないの更新
-		kunai_update(); {
+		kunai_update();{
 			
 			if (counter == 0) {
 				if (game_timer > 120)
@@ -244,8 +258,7 @@ void game_update()
 				counter = 0;
 			}
 		}
-		//くないの動き
-		kunai_move();
+		
 
 		// SPACE PUSHED
 		if (TRG(0) & PAD_TRG1)
@@ -272,46 +285,23 @@ void game_update()
 	case 4:
 		mato_active3 = true;
 
-		if (mato_active3)
-		{
-			if (mato_state3 == 0) {  // 1000 から 360 に移動
+		if (mato_active3) {
+			if (mato_state3 == 0) {  // 初期状態: 右から左に移動
+				// 初期速度を更新
 				velocityX3 += acceleratorX3;
-				velocityY3 += acceleratorY3;
-				posy3 += velocityY3;
+
+				// 座標を更新
 				posx3 += velocityX3;
 
-				float threshold = 1.0f; // 目標地点の誤差範囲
-				if (abs(posx3 - 378.0f) <= threshold && abs(posy3 - 195.0f) <= threshold) {
-					posx3 = 378.0f; // 目標地点に固定
-					posy3 = 195.0f;
+				// 到達判定 (-100.0f まで)
+				if (posx3 <= -100.0f) {
+					posx3 = -100.0f;  // 到達時に固定
 					velocityX3 = 0.0f; // 停止
-					velocityY3 = 0.0f; // 停止
-					mato_state3++; // 次の状態に進む
+					mato_state3++;    // 次の状態に進む
 				}
 			}
-			
 		}
-		/*switch (mato_state3)
-		{
-		case 0:
-			posx3 = 0;
-			posy3 = 800;
-			mato_state3++;
-			break;
-		case 1:
-			posx3 = 200;
-			posy3 = 400;
-			mato_state3++;
-			break;
-
-		case 2:
-			posx3 = 1000;
-			posy3 = 200;
-			mato_state3++;
-			break;
-
-		
-		}*/
+	
 		
 
 		//くないの更新
@@ -359,23 +349,74 @@ void game_update()
 
 
 	
-	//case 5:
-	//	//４の的がヒットしたら次の的へ
-	//	if (isHit == true)
-	//	{
-	//		isHit = false;
-	//		game_state++;
-	//	}
-	//	break;
-	//case 6:
-	//	//５の的がヒットしたら次の的へ
-	//	if (isHit == true)
-	//	{
-	//		isHit = false;
-	//		nextScene = SCENE_TITLE;
-	//		break;
-	//	}
-	//	break;
+	case 5:
+
+		mato_active4 = true;
+	
+			if (mato_active4) {  // 的4がアクティブな場合
+				if (mato_state4 == 0) {  // 初期状態: 上から下に移動
+					// 加速度を適用して速度を更新
+					velocity4 += accelerator4;
+
+					// 座標を更新
+					posy4 += velocity4;  // Y方向の座標を増加
+
+					// 到達判定 (850.0f に到達したら停止)
+					if (posy4 >= 850.0f) {
+						posy4 = 850.0f;   // 到達時に位置を固定
+						velocity4 = 0.0f; // 停止
+						mato_state4++;    // 次の状態に進む
+					}
+				}
+			}
+
+
+		//くないの更新
+		kunai_update(); {
+			if (counter == 0) {
+				if (game_timer > 120)
+				{
+					nextScene = SCENE_RESULT;
+				}
+			}
+			if (TRG(0) & PAD_TRG1)
+			{
+				kunai_render();
+				Kunai.pos.y = 390;
+				counter++;
+				if (counter == 1)
+					music::play(1);
+				music::play(2);
+				game_timer = 0;
+				counter = 0;
+			}
+		}
+		//くないの動き
+		kunai_move();
+
+
+		// SPACE PUSHED
+		if (TRG(0) & PAD_TRG1)
+		{
+			game_hit4();
+			mato_state++;
+
+		}
+
+
+		//４の的がヒットしたら次の的へ
+		if (isHit == true)
+		{
+			mato_active4 = false;
+
+			safe_delete(sprMato4);
+
+			isHit = false;
+			game_state++;
+		}
+		break;
+	case 6:
+		nextScene = SCENE_RESULT;
 	}
 	game_timer++;
 }

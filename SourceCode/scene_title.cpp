@@ -30,13 +30,13 @@ void title_update()
     switch (title_state)
     {
     case 0:
-<<<<<<< HEAD
+
         //////// ‰ŠúÝ’è ////////
         
-=======
+
        
-        sprKi = sprite_load(L"./Data/Images/push.png");
->>>>>>> 0d7f5d7a0470cd20dbfe52cdb31018d5893b4938
+
+
         sprtitle = sprite_load(L"./Data/Images/title.png");
         sprSpace = sprite_load(L"./Data/Images/space.png");
         sprEnter = sprite_load(L"./Data/Images/enter.png");
