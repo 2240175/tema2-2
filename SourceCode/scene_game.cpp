@@ -139,10 +139,10 @@ void game_update()
 		sprBack = sprite_load(L"./Data/Images/back.png");
 		sprCenter = sprite_load(L"./Data/Images/senter.png");
 		sprK = sprite_load(L"./Data/Images/Okunai.png");
-		sprmati  = sprite_load(L"./Data/Images/的UI1.png");
-		sprmati2 = sprite_load(L"./Data/Images/的UI2.png");
-		sprmati3 = sprite_load(L"./Data/Images/的UI3.png");
-		sprmati4 = sprite_load(L"./Data/Images/的UI4.png");
+		sprmati  = sprite_load(L"./Data/Images/UI1.png");
+		sprmati2 = sprite_load(L"./Data/Images/UI2.png");
+		sprmati3 = sprite_load(L"./Data/Images/UI3.png");
+		sprmati4 = sprite_load(L"./Data/Images/UI4.png");
 
 		sprMato1 = sprite_load(L"./Data/Images/mato.png");
 		sprMato2 = sprite_load(L"./Data/Images/mato.png");
