@@ -285,9 +285,12 @@ void game_update()
 	case 4:
 		mato_active3 = true;
 
-		if (mato_active3) {
-			if (mato_state3 == 0) {  // 初期状態: 右から左に移動
-				// 初期速度を更新
+
+		
+		if (mato_active3)
+		{
+			if (mato_state3 == 0) {  // 1000 から 360 に移動
+
 				velocityX3 += acceleratorX3;
 
 				// 座標を更新
@@ -299,6 +302,24 @@ void game_update()
 					velocityX3 = 0.0f; // 停止
 					mato_state3++;    // 次の状態に進む
 				}
+
+				//
+				//static float angle = 0;
+
+				//float w = 0.2; // 角速度
+				//float a = 200; // 振幅
+				//float s = 8; // 横向きの速さ
+
+				//angle += w;
+
+				//posx3 += s; // 目標地点に固定
+				//posy3 = 325 + a * sinf(angle);
+				//velocityX3 = 0.0f; // 停止
+			
+
+
+
+
 			}
 		}
 	
@@ -307,7 +328,7 @@ void game_update()
 		//くないの更新
 		kunai_update(); {
 			if (counter == 0) {
-				if (game_timer > 120)
+				if (game_timer > 280)
 				{
 					nextScene = SCENE_RESULT;
 				}
