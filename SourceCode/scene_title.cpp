@@ -81,8 +81,7 @@ void title_update()
     }
 
     debug::setString("");
-    debug::setString("title_state:%d", title_state);
-    debug::setString("title_timer:%d", title_timer);
+
 
     title_timer++;
 }

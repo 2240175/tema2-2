@@ -8,6 +8,9 @@ extern int score2 = 0;
 
 int game_state2;
 int game_timer2;
+int wait_timer2;
+int moment_timer1;
+int moment_timer2;
 int gmato_state ;
 int counter2;
 
@@ -54,6 +57,13 @@ bool mato_active24 = false;//  4
 
 Sprite* sprCenter2;
 Sprite* sprK2;
+Sprite* mmato1;
+Sprite* mmato2;
+Sprite* mmato3;
+Sprite* mmato4;
+
+
+
 Sprite* sprMato21;
 Sprite* sprMato22;
 Sprite* sprMato23;
@@ -67,6 +77,9 @@ void game2_init()
 {
 	game_state2 = 0;
 	game_timer2 = 0;
+	wait_timer2 = 0;
+	moment_timer1 = 0;
+	moment_timer2 = 0;
 	gmato_state = 0;
 
 	//的１
@@ -121,6 +134,10 @@ void game2_update()
 		sprBack2 = sprite_load(L"./Data/Images/back.png");
 		sprCenter2 = sprite_load(L"./Data/Images/senter.png");
 		sprK2 = sprite_load(L"./Data/Images/Okunai.png");
+		mmato1 = sprite_load(L"./Data/Images/UI1.png");
+		mmato2 = sprite_load(L"./Data/Images/UI2.png");
+		mmato3 = sprite_load(L"./Data/Images/UI3.png");
+		mmato4 = sprite_load(L"./Data/Images/UI4.png");
 
 		sprMato21 = sprite_load(L"./Data/Images/mato.png");
 		sprMato22 = sprite_load(L"./Data/Images/mato.png");
@@ -142,7 +159,15 @@ void game2_update()
 
 
 	case 2:
-
+		sprite_render(mmato1, 0, 0);
+		music::play(5);
+		if (game_timer2 > 110)
+		{
+			music::stop(5);
+			safe_delete(mmato1);
+		}
+		if (game_timer2 > 180)
+		{
 			angle = 0;
 
 			w = 0.2; // 角速度
@@ -153,13 +178,13 @@ void game2_update()
 
 			gposx3 += s; // 目標地点に固定
 			gposy3 = 325 + a * sinf(angle);
-			
 
+		}
 		//くないの更新
 		kunai_update(); {
 
 			if (counter2 == 0) {
-				if (game_timer2 > 120)
+				if (game_timer2 > 280)
 				{
 					nextScene = SCENE_RESULT;
 				}
@@ -204,19 +229,28 @@ void game2_update()
 		break;
 
 	case 3:
-		
-		angle = 0;
+		wait_timer2++;
+		sprite_render(mmato2, 0, 0);
+		music::play(5);
+		if (wait_timer2 > 110)
+		{
+			music::stop(5);
+			safe_delete(mmato2);
+		}
+		if (wait_timer2 > 180)
+		{
+			angle = 0;
 
-		w = 0.5; // 角速度
-		a = 300; // 振幅
-		s = -8; // 横向きの速さ
+			w = 0.5; // 角速度
+			a = 300; // 振幅
+			s = -8; // 横向きの速さ
 
-		angle += w;
+			angle += w;
 
-		gposx3 += s; // 目標地点に固定
-		gposy3 = 325 + a * sinf(angle);
-		
+			gposx3 += s; // 目標地点に固定
+			gposy3 = 325 + a * sinf(angle);
 
+		}
 
 
 		//くないの更新
@@ -265,25 +299,36 @@ void game2_update()
 
 
 	case 4:
-		mato_active23 = true;
+		moment_timer1++;
+		sprite_render(mmato3, 0, 0);
+		music::play(5);
+		if (moment_timer1 > 110)
+		{
+			music::stop(5);
+			safe_delete(mmato3);
+		}
+
+		if (moment_timer1 > 180)
+		{
+			mato_active23 = true;
 
 
-		w = 0;
-		a = 0;
-		s = 0;
-		
-				angle = 0;
+			w = 0;
+			a = 0;
+			s = 0;
 
-				w = 0.2; // 角速度
-				a = 200; // 振幅
-				s = 8; // 横向きの速さ
+			angle = 0;
 
-				angle += w;
+			w = 0.2; // 角速度
+			a = 200; // 振幅
+			s = 8; // 横向きの速さ
 
-				gposx3 += s; // 目標地点に固定
-				gposy3 = 325 + a * sinf(angle);
+			angle += w;
 
+			gposx3 += s; // 目標地点に固定
+			gposy3 = 325 + a * sinf(angle);
 
+		}
 		//くないの更新
 		kunai_update(); {
 			if (counter2 == 0) {
@@ -331,23 +376,33 @@ void game2_update()
 
 
 	case 5:
+		moment_timer2++;
+		sprite_render(mmato4, 0, 0);
+		music::play(5);
+		if (moment_timer1 > 110)
+		{
+			music::stop(5);
+			safe_delete(mmato4);
+		}
 
-		w = 0;
-		a = 0;
-		s = 0;
+		if (moment_timer2 > 180)
+		{
+			w = 0;
+			a = 0;
+			s = 0;
 
-		angle = 0;
+			angle = 0;
 
-		w = 0.2; // 角速度
-		a = 200; // 振幅
-		s = 8; // 横向きの速さ
+			w = 0.2; // 角速度
+			a = 200; // 振幅
+			s = 8; // 横向きの速さ
 
-		angle += w;
+			angle += w;
 
-		gposx3 += s; // 目標地点に固定
-		gposy3 = 325 + a * sinf(angle);
+			gposx3 += s; // 目標地点に固定
+			gposy3 = 325 + a * sinf(angle);
 
-
+		}
 
 		//くないの更新
 		kunai_update(); {
@@ -412,19 +467,33 @@ void game2_render()
 	sprite_render(sprMato22, gposx2, gposy2, 1.5f, 1.5f, 0, 0, 256, 256, 256 / 2, 256 / 2, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, true);//的
 	sprite_render(sprMato23, gposx3, gposy3, 1.5f, 1.5f, 0, 0, 256, 256, 256 / 2, 256 / 2, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, true);//的
 	sprite_render(sprMato24, gposx4, gposy4, 1.5f, 1.5f, 0, 0, 256, 256, 256 / 2, 256 / 2, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, true);//的
-
+	sprite_render(mmato1, 0, 0);
+	if (wait_timer2 > 30)
+	{
+		music::play(5);
+		sprite_render(mmato2, 0, 0);
+	}
+	if (moment_timer1 > 30)
+	{
+		music::play(5);
+		sprite_render(mmato3, 0, 0);
+	}
+	if (moment_timer2 > 30)
+	{
+		music::play(5);
+		sprite_render(mmato4, 0, 0);
+	}
 
 	//くない描画
 	kunai_render();
 
 
-	debug::setString("game_state:%d", game_state2);
-	debug::setString("game_timer:%d", game_timer2);
+
 	debug::setString("score: % d", score2);
 	POINT point;                                            // 位置用の変数を宣言する
 	GetCursorPos(&point);                                   // スクリーン座標を取得する
 	ScreenToClient(window::getHwnd(), &point);              // クライアント座標に変換する
-	debug::setString("x = %d, y = %d", point.x, point.y);
+	//debug::setString("x = %d, y = %d", point.x, point.y);
 
 }
 
