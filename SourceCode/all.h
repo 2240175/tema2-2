@@ -27,6 +27,7 @@
 #include "scene_title.h"
 #include "game_tutorial.h"
 #include "game_result.h"
+#include "scene_select.h"
 #include"judge.h"
 
 #include "Mato.h"

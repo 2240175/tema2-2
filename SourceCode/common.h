@@ -15,6 +15,7 @@ using namespace GameLib;
 #define SCENE_TUTORIAL1 (3)
 #define SCENE_TUTORIAL2 (4)
 #define SCENE_TUTORIAL3 (5)
+#define SCENE_SELECT (7)
 
 
 //  íËêî

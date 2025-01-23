@@ -117,6 +117,9 @@
     <ClInclude Include="SourceCode\scene_game2.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="SourceCode\scene_select.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameLib\debug.cpp">
@@ -198,6 +201,9 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="SourceCode\scene_game2.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceCode\scene_select.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
