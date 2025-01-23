@@ -28,10 +28,12 @@ float accelerator2 = 0.4f;//初期加速度
 int mato_state2 = 0;//状態を管理
 
 //的３
-float posx3 = -34;//的3のposx
-float posy3 = 834;//的3のposy
-float velocity3 = 0.0f;//初期速度
-float accelerator3 = -0.3f;//初期加速度
+float posx3 =-151 ;//的3のposx
+float posy3 = 325;//的3のposy
+float velocityX3 = 0.0f;//初期速度
+float velocityY3 = 0.0f;//初期速度
+float acceleratorX3 = 0.3f;//初期加速度
+float acceleratorY3 = -0.3f;//初期加速度
 int mato_state3 = 0;//状態を管理
 
 //的4
@@ -78,13 +80,33 @@ void game_init()
 {
 	game_state = 0;
 	game_timer = 0;
+	mato_state = 0;
+
+	//的１
+	posx1 = 1280 / 2;//的1のposx
+	posy1 = 850;//的1のposy
+	velocity1 = 0.0f;//初期速度
+	accelerator1 = -0.3f;//初期加速度
+	mato_state1 = 0;//状態を管理
+
+	posx2 = -100.0f;
+	posy2 = 720.0f / 2.0f;
+	velocity2 = 0.3f;
+	accelerator2 = 0.4f;
+	mato_state2 = 0;
+
 
 }
+
+
+
 void game_deinit()
 {
 	//TODO_11
 	kunai_deinit();
 	safe_delete(sprBack);
+
+	
 }
 
 void game_update()
@@ -108,11 +130,8 @@ void game_update()
 		//くないの初期設定
 		kunai_init();
 	
-		//的の初期設定
-		mato_init();
-
-
 		game_state++;
+
 	case 1:
 		//////// パラメータの設定 ////////
 		GameLib::setBlendMode(Blender::BS_ALPHA);
@@ -178,7 +197,7 @@ void game_update()
 
 			safe_delete(sprMato1);
 
-			Kunai.pos.y = 760;
+			Kunai.pos.y = 760;//くない初期化
 
 			isHit = false;
 			game_state++;
@@ -243,6 +262,8 @@ void game_update()
 		{
 			mato_active2 = false;
 
+			Kunai.pos.y = 760;//くない初期化
+
 			safe_delete(sprMato2);
 			isHit = false;
 			game_state++;
@@ -256,27 +277,43 @@ void game_update()
 		if (mato_active3)
 		{
 			if (mato_state3 == 0) {  // 1000 から 360 に移動
-				velocity3 += accelerator3;
-				posy3 += velocity3;
-				posx3 += velocity3;
-				if (posy3 >= 0.0f && posx3 <= 338.0f ) {  // 到達
-					posy3 = 0.0f;
-					posx3 = 338.0f;
-					velocity3 = 2.0f;    // リセット
-					accelerator3 = 2.0f; // 次の移動用加速度
-					mato_state3++;
-				}
-			}
-			else if (mato_state3 == 1)
-			{
-				if (posx3 >= 500.0f ) {
-					posx3 = 500.0f;
-					velocity3 = 0.0f;
-					accelerator3 = 0.0f;  // 停止
+				velocityX3 += acceleratorX3;
+				velocityY3 += acceleratorY3;
+				posy3 += velocityY3;
+				posx3 += velocityX3;
 
+				float threshold = 1.0f; // 目標地点の誤差範囲
+				if (abs(posx3 - 378.0f) <= threshold && abs(posy3 - 195.0f) <= threshold) {
+					posx3 = 378.0f; // 目標地点に固定
+					posy3 = 195.0f;
+					velocityX3 = 0.0f; // 停止
+					velocityY3 = 0.0f; // 停止
+					mato_state3++; // 次の状態に進む
 				}
 			}
+			
 		}
+		/*switch (mato_state3)
+		{
+		case 0:
+			posx3 = 0;
+			posy3 = 800;
+			mato_state3++;
+			break;
+		case 1:
+			posx3 = 200;
+			posy3 = 400;
+			mato_state3++;
+			break;
+
+		case 2:
+			posx3 = 1000;
+			posy3 = 200;
+			mato_state3++;
+			break;
+
+		
+		}*/
 		
 
 		//くないの更新
@@ -323,13 +360,7 @@ void game_update()
 
 
 
-		//３の的がヒットしたら次の的へ
-		if (isHit == true)
-		{
-			isHit = false;
-			game_state++;
-		}
-		break;
+	
 	//case 5:
 	//	//４の的がヒットしたら次の的へ
 	//	if (isHit == true)
@@ -498,7 +529,7 @@ void game_hit3()//当たり判定
 	float distance3 = sqrtf(dx3 * dx3 + dy3 * dy3);
 
 
-	if (distance3 <= 120.0f)
+	if (distance3 <= 300.0f)
 	{
 		isHit = true;
 		if (distance3 <= 10.0f)
