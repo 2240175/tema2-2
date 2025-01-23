@@ -571,11 +571,11 @@ void game_hit1()//“–‚½‚è”»’è
 		}
 		if (distance1 <= 30.0f)
 		{
-			score += 20;
+			score += 25;
 		}
 		if (distance1 <= 50.0f)
 		{
-			score += 20;
+			score += 25;
 		}
 		if (distance1 <= 70.0f)
 		{
@@ -619,11 +619,11 @@ void game_hit2()//“–‚½‚è”»’è
 		}
 		if (distance2 <= 30.0f)
 		{
-			score += 20;
+			score += 25;
 		}
 		if (distance2 <= 50.0f)
 		{
-			score += 20;
+			score += 25;
 		}
 		if (distance2 <= 70.0f)
 		{
@@ -667,11 +667,11 @@ void game_hit3()//“–‚½‚è”»’è
 		}
 		if (distance3 <= 30.0f)
 		{
-			score += 20;
+			score += 25;
 		}
 		if (distance3 <= 50.0f)
 		{
-			score += 20;
+			score += 25;
 		}
 		if (distance3 <= 70.0f)
 		{
@@ -713,11 +713,11 @@ void game_hit4()//“–‚½‚è”»’è
 		}
 		if (distance4 <= 30.0f)
 		{
-			score += 20;;
+			score += 25;;
 		}
 		if (distance4 <= 50.0f)
 		{
-			score += 20;
+			score += 25;
 		}
 		if (distance4 <= 70.0f)
 		{
