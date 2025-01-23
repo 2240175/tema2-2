@@ -70,9 +70,7 @@ Sprite* sprMato3;
 Sprite* sprMato4;
 Sprite* sprMato5;
 
-//--------------------------------------
-//  ゲームの初期設定
-//--------------------------------------
+
 
 void game_init()
 {
@@ -82,7 +80,7 @@ void game_init()
 }
 void game_deinit()
 {
-	//TODO_11
+	
 	kunai_deinit();
 	safe_delete(sprBack);
 }
@@ -92,7 +90,7 @@ void game_update()
 	switch (game_state)
 	{
 	case 0:
-		//////// 初期設定 ////////
+	
 		music::play(3);
 		game_timer++;
 		sprBack = sprite_load(L"./Data/Images/back.png");
@@ -114,13 +112,13 @@ void game_update()
 
 		game_state++;
 	case 1:
-		//////// パラメータの設定 ////////
+
 		GameLib::setBlendMode(Blender::BS_ALPHA);
 
 		
 
 		game_state++;
-		/*fallthrough*/
+		
 	
 	case 2:
 
@@ -349,9 +347,7 @@ void game_update()
 	}
 	game_timer++;
 }
-//--------------------------------------
-//  ゲームの描画処理
-//--------------------------------------
+
 void game_render()
 {
 	GameLib::clear(0.2f, 0.2f, 0.4f);
@@ -633,116 +629,6 @@ void game_hit5()//当たり判定
 }
 
 
-//void game_hit1()//当たり判定
-//{
-//	//当たり判定//
-//	float dx1 = Kunai.pos.x - posx1;
-//	float dy1 = Kunai.pos.y - posy1;
-//	float distance1 = sqrtf(dx1 * dx1 + dy1 * dy1);
-//
-//	if (distance1 < 120)
-//	{
-//		isHit = true;
-//		score = ((120.0f - distance1) / 120.0f); // 1.0 - 0.0
-//		score *= 100;
-//
-//	}
-//	else
-//	{
-//		music::stop(3);
-//		nextScene = SCENE_RESULT;
-//	}
-//
-//}
-//
-//void game_hit2()//当たり判定
-//{
-//	//当たり判定
-//	float dx2 = Kunai.pos.x - posx2;
-//	float dy2 = Kunai.pos.y - posy2;
-//	float distance2 = sqrtf(dx2 * dx2 + dy2 * dy2);
-//
-//	if (distance2 < 120)
-//	{
-//		isHit = true;
-//		score = ((120.0f - distance2) / 120.0f); // 1.0 - 0.0
-//		score *= 100;
-//
-//	}
-//	else
-//	{
-//		music::stop(3);
-//		nextScene = SCENE_RESULT;
-//	}
-//
-//}
-//
-//
-//void game_hit3()//当たり判定
-//{
-//	//当たり判定
-//	float dx3 = Kunai.pos.x - posx3;
-//	float dy3 = Kunai.pos.y - posy3;
-//	float distance3 = sqrtf(dx3 * dx3 + dy3 * dy3);
-//
-//	if (distance3 < 120)
-//	{
-//		isHit = true;
-//		score = ((120.0f - distance3) / 120.0f); // 1.0 - 0.0
-//		score *= 100;
-//
-//	}
-//	else
-//	{
-//		music::stop(3);
-//		nextScene = SCENE_RESULT;
-//	}
-//
-//}
-//
-//void game_hit4()//当たり判定
-//{
-//	//当たり判定
-//	float dx4 = Kunai.pos.x - posx4;
-//	float dy4 = Kunai.pos.y - posy4;
-//	float distance4 = sqrtf(dx4 * dx4 + dy4 * dy4);
-//
-//	if (distance4 < 120)
-//	{
-//		isHit = true;
-//		score = ((120.0f - distance4) / 120.0f); // 1.0 - 0.0
-//		score *= 100;
-//
-//	}
-//	else
-//	{
-//		music::stop(3);
-//		nextScene = SCENE_RESULT;
-//	}
-//
-//}
-//
-//void game_hit5()//当たり判定
-//{
-//	//当たり判定
-//	float dx5 = Kunai.pos.x - posx5;
-//	float dy5 = Kunai.pos.y - posy5;
-//	float distance5 = sqrtf(dx5 * dx5 + dy5 * dy5);
-//
-//	if (distance5 < 120)
-//	{
-//		isHit = true;
-//		score = ((120.0f - distance5) / 120.0f); // 1.0 - 0.0
-//		score *= 100;
-//
-//	}
-//	else
-//	{
-//		music::stop(3);
-//		nextScene = SCENE_RESULT;
-//	}
-//
-//}
 
 
 

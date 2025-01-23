@@ -3,9 +3,11 @@
 int select_state;
 int select_timer;
 
+bool choise = true;
 
 Sprite* sprselect;
-
+Sprite* Startup;
+Sprite* Startdown;
 
 void select_init()
 {
@@ -15,6 +17,8 @@ void select_init()
 void select_deinit()
 {
 	safe_delete(sprselect);
+	safe_delete(Startup);
+	safe_delete(Startdown);
 }
 void select_update()
 {
@@ -22,8 +26,11 @@ void select_update()
 	{
 	case 0:
 
+		
+		sprselect = sprite_load(L"./Data/Images/セレクト画面.png");
+		Startup = sprite_load(L"./Data/Images/ber1.png");
+		Startdown = sprite_load(L"./Data/Images/ber2.png");
 
-		sprselect = sprite_load(L"./Data/Images/セレクト画面1.png");
 		sprite_render(sprselect, 0, 0);
 
 		select_state++;
@@ -33,21 +40,71 @@ void select_update()
 
 		GameLib::setBlendMode(Blender::BS_ALPHA);
 
-		//music::play(0);
-		//music::setVolume(0, 0.1f);
+
 
 		select_state++;
 
+	case 2:
+		if (choise == true)
+		{
+			if (TRG(0) & PAD_START)
+			{
+				nextScene = SCENE_GAME;
+				break;
+			}
 
+			if (TRG(0) & PAD_DOWN)
+			{
+				choise = false;
+			}
+
+
+		}
+		if (choise == false)
+		{
+			if (TRG(0) & PAD_UP)
+			{
+				choise = true;
+			}
+
+			if (TRG(0) & PAD_START)
+			{
+				nextScene = SCENE_GAME2;
+				
+			}
+		}
+		break;
+		
 	}
-
 	select_timer++;
+	
 
 }
+
 void select_render()
 {
-	// 画面を青で塗りつぶす
-	//GameLib::clear(0.3f, 0.5f, 1.0f);
+	sprite_render(sprselect, 0, 0);
+
+
+	if (choise == true)
+	{
+		if (select_timer / 32 % 2)
+		{
+			sprite_render(Startup, 0, 0);
+		}
+		sprite_render(Startdown, 0, 0);
+	}
+	if (choise == false)
+	{
+		if (select_timer / 32 % 2)
+		{
+			sprite_render(Startdown, 0, 0);
+		}
+		sprite_render(Startup, 0, 0);
+	}
+
+
+
 
 }
 

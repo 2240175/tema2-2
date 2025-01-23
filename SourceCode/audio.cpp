@@ -1,8 +1,6 @@
 #include "all.h"
 
-//--------------------------------------
-//  オーディオの初期設定
-//--------------------------------------
+
 void audio_init()
 {
     // 音楽の読み込み
@@ -13,17 +11,15 @@ void audio_init()
     music::load(4, L"./Data/Musics/琴.wav");
     music::load(5, L"./Data/Musics/尺八.wav");
 
-    sound::load(XWB_SYSTEM, L"./Data/Sounds/system.xwb");    // メニューなどのSE
-    sound::load(XWB_STAGE1, L"./Data/Sounds/stage1.xwb");    // ステージ用のSE
+    sound::load(XWB_SYSTEM, L"./Data/Sounds/system.xwb");    
+    sound::load(XWB_STAGE1, L"./Data/Sounds/stage1.xwb");    
 
     sound::setVolume(XWB_STAGE1, XWB_STAGE1_JUMP, 0.1f);
 }
 
-//--------------------------------------
-//  オーディオの終了処理
-//--------------------------------------
+
 void audio_deinit()
 {
-    // 音楽を全て解放
+   
     music::clear();
 }
