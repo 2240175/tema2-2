@@ -31,17 +31,6 @@ bool hitCheck(OBJ2D* obj1, OBJ2D* obj2)
 void judge()
 {
 
-    //TODO_28
-    //for (int i = 0; i < MATO_MAX; ++i)
-    //{
-    //    if (Mato[i].moveAlg == -1) continue;
-    //    if (Mato[i].area != Kunai.area) continue;
-
-    //    if (hitCheck(&Kunai, &Mato[i]))
-    //    {
-    //        game_reset();
-    //    }
-    //}
 }
 
 

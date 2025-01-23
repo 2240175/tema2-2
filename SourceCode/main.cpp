@@ -43,6 +43,10 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
             case SCENE_TUTORIAL1:
                 tutorial_deinit();
                 break;
+
+            case SCENE_SELECT:
+                select_deinit();
+                break;
             }
 
             // 次のシーンに応じた初期設定処理
@@ -62,6 +66,9 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
 
             case SCENE_TUTORIAL1:
                 tutorial_init();
+                break;
+            case SCENE_SELECT:
+                select_init();
                 break;
             }
 
@@ -96,6 +103,10 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
             tutorial_update();
             tutorial_render();
             break;
+        case SCENE_SELECT:
+            select_render();
+            select_update();
+            break;
         }
 
         // デバッグ文字列の描画
@@ -124,6 +135,9 @@ int APIENTRY wWinMain(HINSTANCE, HINSTANCE, LPWSTR, int)
 
     case SCENE_TUTORIAL1:
         tutorial_deinit();
+        break;
+    case SCENE_SELECT:
+        select_deinit();
         break;
     }
 

@@ -27,8 +27,7 @@ void result_update()
 	case 1:
 		GameLib::setBlendMode(Blender::BS_ALPHA);
 
-		//music::play(0);
-		//music::setVolume(0, 0.1f);
+	
 
 		result_state++;
 
@@ -56,7 +55,7 @@ void result_update()
 }
 void result_render()
 {
-	// ‰æ–Ê‚ğÂ‚Å“h‚è‚Â‚Ô‚·
+
 	GameLib::clear(0.3f, 0.5f, 1.0f);
 	
 	sprite_render(sprhaikei2, 0, 0);

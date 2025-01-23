@@ -9,18 +9,14 @@ Sprite* sprSpace;
 Sprite* sprEnter;
 
 
-//--------------------------------------
-//  初期設定
-//--------------------------------------
+
 void title_init()
 {
     title_state = 0;
     title_timer = 0;
 }
 
-//--------------------------------------
-//  終了処理
-//--------------------------------------
+
 void title_deinit()
 {
     music::stop(0);
@@ -28,29 +24,32 @@ void title_deinit()
     safe_delete(sprtitle);
 }
 
-//--------------------------------------
-//  タイトルの更新処理
-//--------------------------------------    
+    
 void title_update()
 {
     switch (title_state)
     {
     case 0:
+<<<<<<< HEAD
         //////// 初期設定 ////////
         
+=======
+       
+        sprKi = sprite_load(L"./Data/Images/push.png");
+>>>>>>> 0d7f5d7a0470cd20dbfe52cdb31018d5893b4938
         sprtitle = sprite_load(L"./Data/Images/title.png");
         sprSpace = sprite_load(L"./Data/Images/space.png");
         sprEnter = sprite_load(L"./Data/Images/enter.png");
 
         title_state++;
-        /*fallthrough*/
+      
 
 
 
 
 
     case 1:
-        //////// パラメータの設定 ////////
+      
 
         GameLib::setBlendMode(Blender::BS_ALPHA);
 
@@ -58,16 +57,16 @@ void title_update()
         music::setVolume(0, 0.1f);
 
         title_state++;
-        /*fallthrough*/
+       
 
     case 2:
-        //////// 通常時 ////////
+       
 
         if (TRG(0) & PAD_START)
         {
             music::play(4);
 
-            nextScene = SCENE_GAME;
+            nextScene = SCENE_SELECT;
             break;
         }
         if (TRG(0) & PAD_TRG1)
@@ -85,9 +84,7 @@ void title_update()
     title_timer++;
 }
 
-//--------------------------------------
-//  タイトルの描画処理6
-//--------------------------------------
+
 void title_render()
 {  
     sprite_render(sprtitle, 0, 0);
@@ -96,9 +93,7 @@ void title_render()
 
   
 
-    //// タイトルの文字
-    //font::textOut(4, "ECC COMP", VECTOR2(100, 80), VECTOR2(2.4f, 2.4f), VECTOR4(1, 0.8f, 0, 1));
-    //font::textOut(4, "Game Programming I", VECTOR2(80, 180), VECTOR2(2.0f, 2.0f), VECTOR4(0, 1, 0.6f, 1));
+
 
   
 

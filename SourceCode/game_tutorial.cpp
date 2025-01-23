@@ -54,8 +54,7 @@ void tutorial_update()
 
 		GameLib::setBlendMode(Blender::BS_ALPHA);
 
-		//music::play(0);
-		//music::setVolume(0, 0.1f);
+	
 		tutorial_state++;
 
 
@@ -71,8 +70,7 @@ void tutorial_update()
 
 		GameLib::setBlendMode(Blender::BS_ALPHA);
 
-		//music::play(0);
-		//music::setVolume(0, 0.1f);
+
 		tutorial_state++;
 	case 6:
 		if (TRG(0) & PAD_TRG1)
@@ -87,8 +85,7 @@ void tutorial_update()
 
 		GameLib::setBlendMode(Blender::BS_ALPHA);
 
-		//music::play(0);
-		//music::setVolume(0, 0.1f);
+
 		tutorial_state++;
 
 	case 8:
@@ -104,14 +101,13 @@ void tutorial_update()
 
 		GameLib::setBlendMode(Blender::BS_ALPHA);
 
-		//music::play(0);
-		//music::setVolume(0, 0.1f);
+	
 		tutorial_state++;
 
 	case 10:
 		if (TRG(0) & PAD_TRG1)
 		{
-			nextScene = SCENE_GAME;
+			nextScene = SCENE_TITLE;
 			tutorial_state = 0;
 		}
 		break;
@@ -123,8 +119,7 @@ void tutorial_update()
 }
 void tutorial_render()
 {
-	// âÊñ Çê¬Ç≈ìhÇËÇ¬Ç‘Ç∑
-	//GameLib::clear(0.3f, 0.5f, 1.0f);
+
 
 }
 
