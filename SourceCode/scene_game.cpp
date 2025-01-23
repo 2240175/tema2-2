@@ -259,8 +259,9 @@ void game_update()
 				velocity3 += accelerator3;
 				posy3 += velocity3;
 				posx3 += velocity3;
-				if (posy3 <= 0.0f ) {  // 到達
+				if (posy3 >= 0.0f && posx3 <= 338.0f ) {  // 到達
 					posy3 = 0.0f;
+					posx3 = 338.0f;
 					velocity3 = 2.0f;    // リセット
 					accelerator3 = 2.0f; // 次の移動用加速度
 					mato_state3++;

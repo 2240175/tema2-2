@@ -6,6 +6,8 @@ int title_timer;
 
 Sprite* sprtitle;
 Sprite* sprKi;
+Sprite* sprSpace;
+Sprite* sprEnter;
 
 
 //--------------------------------------
@@ -37,8 +39,9 @@ void title_update()
     case 0:
         //////// ‰Šúİ’è ////////
         sprKi = sprite_load(L"./Data/Images/push.png");
-        sprtitle = sprite_load(L"./Data/Images/title1.jpg");
-        
+        sprtitle = sprite_load(L"./Data/Images/title.png");
+        sprSpace = sprite_load(L"./Data/Images/space.png");
+        sprEnter = sprite_load(L"./Data/Images/enter.png");
 
         title_state++;
         /*fallthrough*/
@@ -89,7 +92,8 @@ void title_update()
 void title_render()
 {  
     sprite_render(sprtitle, 0, 0);
-    sprite_render(sprKi, 0, 0);
+    sprite_render(sprEnter, 0, 0);
+    sprite_render(sprSpace, 0, 0);
 
   
 
