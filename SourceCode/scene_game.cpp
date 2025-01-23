@@ -167,9 +167,10 @@ void game_update()
 	case 2:
 
 		sprite_render(sprmati, 0, 0);
-
+		music::play(5);
 		if (game_timer > 110)
 		{
+			music::stop(5);
 			safe_delete(sprmati);
 		}
 
@@ -196,6 +197,7 @@ void game_update()
 			if (counter == 0) {
 				if (game_timer > 300)
 				{
+					music::stop(3);
 					nextScene = SCENE_RESULT;
 				}
 			}
@@ -245,6 +247,7 @@ void game_update()
 
 		if (wait_timer > 110)
 		{
+			music::stop(5);
 			safe_delete(sprmati2);
 		}
 	
@@ -275,6 +278,7 @@ void game_update()
 			if (counter == 0) {
 				if (game_timer > 300)
 				{
+					music::stop(3);
 					nextScene = SCENE_RESULT;
 				}
 			}
@@ -320,6 +324,7 @@ void game_update()
 
 		if (wait2_timer > 110)
 		{
+			music::stop(5);
 			safe_delete(sprmati3);
 		}
 		mato_active3 = true;
@@ -371,6 +376,7 @@ void game_update()
 			if (counter == 0) {
 				if (game_timer > 300)
 				{
+					music::stop(3);
 					nextScene = SCENE_RESULT;
 				}
 			}
@@ -447,6 +453,7 @@ void game_update()
 			if (counter == 0) {
 				if (game_timer > 300)
 				{
+					music::stop(3);
 					nextScene = SCENE_RESULT;
 				}
 			}
@@ -487,6 +494,7 @@ void game_update()
 		}
 		break;
 	case 6:
+		music::stop(3);
 		nextScene = SCENE_RESULT;
 
 		break;
@@ -508,20 +516,23 @@ void game_render()
 	sprite_render(sprmati, 0, 0);
 	if (wait_timer > 30)
 	{
+		music::play(5);
 		sprite_render(sprmati2, 0, 0);
 	}
 	if (wait2_timer > 30)
 	{
+		music::play(5);
 		sprite_render(sprmati3, 0, 0);
 	}
 	if (wait3_timer > 30)
 	{
+		music::play(5);
 		sprite_render(sprmati4, 0, 0);
 	}
 
 	
 
->>>>>>> 09da2c769fe938474f9589341148951b179b39a0
+
 	//‚­‚È‚¢•`‰æ
 	kunai_render();
 
