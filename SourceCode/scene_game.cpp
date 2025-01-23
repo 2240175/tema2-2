@@ -349,6 +349,7 @@ void game_update()
 
 
 	
+
 	case 5:
 
 		mato_active4 = true;
@@ -417,6 +418,8 @@ void game_update()
 		break;
 	case 6:
 		nextScene = SCENE_RESULT;
+
+		break;
 	}
 	game_timer++;
 }

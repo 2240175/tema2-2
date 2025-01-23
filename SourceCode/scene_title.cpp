@@ -37,6 +37,11 @@ void title_update()
        
 
 
+<<<<<<< HEAD
+=======
+        //sprKi = sprite_load(L"./Data/Images/push.png");
+
+>>>>>>> a2792869c5be40cd867f87a74588542ef7febd2c
         sprtitle = sprite_load(L"./Data/Images/title.png");
         sprSpace = sprite_load(L"./Data/Images/space.png");
         sprEnter = sprite_load(L"./Data/Images/enter.png");
@@ -91,11 +96,6 @@ void title_render()
     sprite_render(sprEnter, 0, 0);
     sprite_render(sprSpace, 0, 0);
 
-  
-
-
-
-  
-
+ 
 
 }
