@@ -41,12 +41,6 @@ float velocity4;//初期速度
 float accelerator4;//初期加速度
 int mato_state4;//状態を管理
 
-//的5
-float posx5 = -80;//的3のposx
-float posy5 = 800;//的3のposy
-float velocity5 = 0.0f;//初期速度
-float accelerator5 = -0.3f;//初期加速度
-int mato_state5 = 0;//状態を管理
 
 
 //------フラグ------
@@ -56,7 +50,7 @@ bool mato_active1 = false;//的の動き
 bool mato_active2 = false;//的2
 bool mato_active3 = false;//  3
 bool mato_active4 = false;//  4
-bool mato_active5 = false;//  5
+
 
 //-----画像-------
 Sprite* sprBack;
@@ -454,7 +448,7 @@ void game_render()
 	sprite_render(sprMato2, posx2, posy2, 1.5f, 1.5f, 0, 0, 256, 256, 256 / 2, 256 / 2, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, true);//的
 	sprite_render(sprMato3, posx3, posy3, 1.5f, 1.5f, 0, 0, 256, 256, 256 / 2, 256 / 2, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, true);//的
 	sprite_render(sprMato4, posx4, posy4, 1.5f, 1.5f, 0, 0, 256, 256, 256 / 2, 256 / 2, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, true);//的
-	sprite_render(sprMato5, posx5, posy5, 1.5f, 1.5f, 0, 0, 256, 256, 256 / 2, 256 / 2, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, true);//的
+	
 
 	//くない描画
 	kunai_render();
@@ -676,54 +670,10 @@ void game_hit4()//当たり判定
 
 
 }
-void game_hit5()//当たり判定
-{
-	//当たり判定
-	float dx5 = Kunai.pos.x - posx5;
-	float dy5 = Kunai.pos.y - posy5;
-	float distance5 = sqrtf(dx5 * dx5 + dy5 * dy5);
 
 
-	if (distance5 <= 120.0f)
-	{
-		isHit = true;
-		if (distance5 <= 15.0f)
-		{
-
-			score += 20;
-		}
-		if (distance5 <= 30.0f)
-		{
-			score += 20;
-		}
-		if (distance5 <= 50.0f)
-		{
-			score += 20;
-		}
-		if (distance5 <= 70.0f)
-		{
-			score += 10;
-		}
-		if (distance5 <= 90.0f)
-		{
-			score += 10;
-		}
-		if (distance5 <= 120.0f)
-		{
-			score += 10;
-		}
-		//float new_score = ((120.0f - distance2) / 120.0f); // 1.0 - 0.0
-
-	}
-
-	else
-	{
-		music::stop(3);
-		nextScene = SCENE_RESULT;
-	}
 
 
-}
 
 
 
