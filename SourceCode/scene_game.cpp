@@ -139,10 +139,10 @@ void game_update()
 		sprBack = sprite_load(L"./Data/Images/back.png");
 		sprCenter = sprite_load(L"./Data/Images/senter.png");
 		sprK = sprite_load(L"./Data/Images/Okunai.png");
-		sprmati  = sprite_load(L"./Data/Images/UI1.png");
-		sprmati2 = sprite_load(L"./Data/Images/UI2.png");
-		sprmati3 = sprite_load(L"./Data/Images/UI3.png");
-		sprmati4 = sprite_load(L"./Data/Images/UI4.png");
+		sprmati  = sprite_load(L"./Data/Images/的UI1.png");
+		sprmati2 = sprite_load(L"./Data/Images/的UI2.png");
+		sprmati3 = sprite_load(L"./Data/Images/的UI3.png");
+		sprmati4 = sprite_load(L"./Data/Images/的UI4.png");
 
 		sprMato1 = sprite_load(L"./Data/Images/mato.png");
 		sprMato2 = sprite_load(L"./Data/Images/mato.png");
@@ -167,10 +167,9 @@ void game_update()
 	case 2:
 
 		sprite_render(sprmati, 0, 0);
-		music::play(5);
+
 		if (game_timer > 110)
 		{
-			music::stop(5);
 			safe_delete(sprmati);
 		}
 
@@ -197,7 +196,6 @@ void game_update()
 			if (counter == 0) {
 				if (game_timer > 300)
 				{
-					music::stop(3);
 					nextScene = SCENE_RESULT;
 				}
 			}
@@ -247,7 +245,6 @@ void game_update()
 
 		if (wait_timer > 110)
 		{
-			music::stop(5);
 			safe_delete(sprmati2);
 		}
 	
@@ -278,7 +275,6 @@ void game_update()
 			if (counter == 0) {
 				if (game_timer > 300)
 				{
-					music::stop(3);
 					nextScene = SCENE_RESULT;
 				}
 			}
@@ -324,7 +320,6 @@ void game_update()
 
 		if (wait2_timer > 110)
 		{
-			music::stop(5);
 			safe_delete(sprmati3);
 		}
 		mato_active3 = true;
@@ -376,7 +371,6 @@ void game_update()
 			if (counter == 0) {
 				if (game_timer > 300)
 				{
-					music::stop(3);
 					nextScene = SCENE_RESULT;
 				}
 			}
@@ -407,7 +401,7 @@ void game_update()
 		if (isHit == true)
 		{
 			mato_active3 = false;
-
+			Kunai.pos.y = 760;
 			safe_delete(sprMato3);
 			isHit = false;
 			game_state++;
@@ -453,7 +447,6 @@ void game_update()
 			if (counter == 0) {
 				if (game_timer > 300)
 				{
-					music::stop(3);
 					nextScene = SCENE_RESULT;
 				}
 			}
@@ -467,6 +460,7 @@ void game_update()
 				music::play(2);
 				game_timer = 0;
 				counter = 0;
+
 			}
 		}
 		//くないの動き
@@ -486,7 +480,7 @@ void game_update()
 		if (isHit == true)
 		{
 			mato_active4 = false;
-
+			Kunai.pos.y = 760;
 			safe_delete(sprMato4);
 
 			isHit = false;
@@ -494,7 +488,6 @@ void game_update()
 		}
 		break;
 	case 6:
-		music::stop(3);
 		nextScene = SCENE_RESULT;
 
 		break;
@@ -516,17 +509,14 @@ void game_render()
 	sprite_render(sprmati, 0, 0);
 	if (wait_timer > 30)
 	{
-		music::play(5);
 		sprite_render(sprmati2, 0, 0);
 	}
 	if (wait2_timer > 30)
 	{
-		music::play(5);
 		sprite_render(sprmati3, 0, 0);
 	}
 	if (wait3_timer > 30)
 	{
-		music::play(5);
 		sprite_render(sprmati4, 0, 0);
 	}
 
