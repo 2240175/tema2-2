@@ -94,6 +94,7 @@ void game_update()
 	case 0:
 		//////// 初期設定 ////////
 		music::play(3);
+		game_timer++;
 		sprBack = sprite_load(L"./Data/Images/back.png");
 		sprCenter = sprite_load(L"./Data/Images/senter.png");
 		sprK = sprite_load(L"./Data/Images/Okunai.png");
@@ -138,15 +139,25 @@ void game_update()
 		}
 
 		//くないの更新
-		kunai_update();
-		if (TRG(0) & PAD_TRG1)
-		{
-			kunai_render();
-			Kunai.pos.y = 390;
-			counter++;
-			if (counter == 1)
-			music::play(1);
-			music::play(2);
+		kunai_update(); {
+			
+			if (counter == 0) {
+				if (game_timer > 120)
+				{
+					nextScene = SCENE_RESULT;
+				}
+			}
+			if (TRG(0) & PAD_TRG1)
+			{
+				kunai_render();
+				Kunai.pos.y = 390;
+				counter++;
+				if (counter == 1)
+				music::play(1);
+				music::play(2);
+				game_timer = 0;
+				counter = 0;
+			}
 		}
 		//くないの動き
 		kunai_move();
@@ -196,16 +207,25 @@ void game_update()
 
 
 		//くないの更新
-		kunai_update();
-		if (TRG(0) & PAD_TRG1)
-		{
-			kunai_render();
-			Kunai.pos.y = 390;
-			counter = 0;
-			counter++;
-			if (counter == 1)
-			music::play(1);
-			music::play(2);
+		kunai_update(); {
+			
+			if (counter == 0) {
+				if (game_timer > 120)
+				{
+					nextScene = SCENE_RESULT;
+				}
+			}
+			if (TRG(0) & PAD_TRG1)
+			{
+				kunai_render();
+				Kunai.pos.y = 390;
+				counter++;
+				if (counter == 1)
+				music::play(1);
+				music::play(2);
+				game_timer = 0;
+				counter = 0;
+			}
 		}
 		//くないの動き
 		kunai_move();
@@ -259,16 +279,24 @@ void game_update()
 		
 
 		//くないの更新
-		kunai_update();
-		if (TRG(0) & PAD_TRG1)
-		{
-			kunai_render();
-			Kunai.pos.y = 390;
-			counter = 0;
-			counter++;
-			if (counter == 1)
-				music::play(1);
-			music::play(2);
+		kunai_update(); {
+			if (counter == 0) {
+				if (game_timer > 120)
+				{
+					nextScene = SCENE_RESULT;
+				}
+			}
+			if (TRG(0) & PAD_TRG1)
+			{
+				kunai_render();
+				Kunai.pos.y = 390;
+				counter++;
+				if (counter == 1)
+					music::play(1);
+				music::play(2);
+				game_timer = 0;
+				counter = 0;
+			}
 		}
 		//くないの動き
 		kunai_move();
