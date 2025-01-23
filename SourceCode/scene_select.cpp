@@ -70,7 +70,7 @@ void select_update()
 			if (TRG(0) & PAD_START)
 			{
 				nextScene = SCENE_GAME2;
-				
+				break;
 			}
 		}
 		break;
