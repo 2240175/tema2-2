@@ -521,7 +521,7 @@ void game_render()
 
 	
 
->>>>>>> 09da2c769fe938474f9589341148951b179b39a0
+
 	//‚­‚È‚¢•`‰æ
 	kunai_render();
 
