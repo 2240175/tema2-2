@@ -21,15 +21,15 @@ float accelerator1 = -0.3f;//初期加速度
 int mato_state1 = 0;//状態を管理
 
 //的２
-float posx2 = -80;//的1のposx
+float posx2 = -100;//的1のposx
 float posy2 = 720/2;//的1のposy
-float velocity2 = 0.0f;//初期速度
-float accelerator2 = -0.3f;//初期加速度
+float velocity2 = 0.3f;//初期速度
+float accelerator2 = 0.4f;//初期加速度
 int mato_state2 = 0;//状態を管理
 
 //的３
-float posx3 = -80;//的3のposx
-float posy3 = 800;//的3のposy
+float posx3 = -34;//的3のposx
+float posy3 = 834;//的3のposy
 float velocity3 = 0.0f;//初期速度
 float accelerator3 = -0.3f;//初期加速度
 int mato_state3 = 0;//状態を管理
@@ -131,8 +131,8 @@ void game_update()
 				posy1 += velocity1;
 				if (posy1 <= 0.0f) {  // 到達
 					posy1 = 0.0f;
-					velocity1 = 2.0f;    // リセット
-					accelerator1 = 2.0f; // 次の移動用加速度
+					velocity1 = 0.0f;    // リセット
+					accelerator1 = -0.3f; // 次の移動用加速度
 				}
 			}
 		}
@@ -158,6 +158,8 @@ void game_update()
 			mato_state++;
 			
 		}
+		
+
 		//１の的がヒットしたら次の的へ
 		if (isHit == true)
 		{
@@ -170,6 +172,7 @@ void game_update()
 			isHit = false;
 			game_state++;
 		}
+
 		break;
 
 	case 3:
@@ -180,13 +183,16 @@ void game_update()
 			if (mato_state2 == 0) {  // 1000 から 360 に移動
 				velocity2 += accelerator2;
 				posx2 += velocity2;
-				if (posx2 <= 0.0f) {  // 到達
+				if (posx2 >= 1280.0f) {  // 到達
 					posx2 = 0.0f;
-					velocity2 = 2.0f;    // リセット
-					accelerator2 = 2.0f; // 次の移動用加速度
+					velocity2 = 0.3f;    // リセット
+					accelerator2 = 0.4f; // 次の移動用加速度
+					
 				}
+				
 			}
 		}
+		
 
 
 		//くないの更新
@@ -231,15 +237,26 @@ void game_update()
 		{
 			if (mato_state3 == 0) {  // 1000 から 360 に移動
 				velocity3 += accelerator3;
+				posy3 += velocity3;
 				posx3 += velocity3;
-				if (posx3 <= 0.0f) {  // 到達
-					posx3 = 0.0f;
+				if (posy3 <= 0.0f ) {  // 到達
+					posy3 = 0.0f;
 					velocity3 = 2.0f;    // リセット
 					accelerator3 = 2.0f; // 次の移動用加速度
+					mato_state3++;
+				}
+			}
+			else if (mato_state3 == 1)
+			{
+				if (posx3 >= 500.0f ) {
+					posx3 = 500.0f;
+					velocity3 = 0.0f;
+					accelerator3 = 0.0f;  // 停止
+
 				}
 			}
 		}
-
+		
 
 		//くないの更新
 		kunai_update();
